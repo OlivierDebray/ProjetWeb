@@ -1,0 +1,41 @@
+*
+{
+    font-family: Calibri, serif;
+}
+
+body
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+#en-tete
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: linear-gradient(to right, white, #b81402);
+    padding: 2vh 5vw 2vh 5vw;
+
+    color: lightgrey;
+}
+
+#en-tete a
+{
+    text-decoration: none;
+    color: grey;
+}
+
+#en-tete a:hover
+{
+    text-decoration: underline;
+    color: lightgrey;
+}
+
+nav
+{
+    display: flex;
+    background: #a01102;
+    border: solid 2px #8a1002;
+}
