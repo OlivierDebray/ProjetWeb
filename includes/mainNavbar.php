@@ -1,4 +1,4 @@
 <nav>
     <a>Evénements</a>
-    <a href="shop.php">Boutique</a>
+    <a href="boutique.php">Boutique</a>
 </nav>
