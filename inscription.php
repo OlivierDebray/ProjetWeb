@@ -154,7 +154,7 @@ if(isset($_POST['forminscription']))
 
             <?php
             if (isset($erreur))
-                ?> <p><?php echo $erreur ?><p><?php
+                echo "<p>" . $erreur . "</p>";
             ?>
 
         </form>
