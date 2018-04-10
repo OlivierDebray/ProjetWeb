@@ -6,6 +6,7 @@
     <?php include ('includes/header.php')?>
     <?php include('includes/mainNavbar.php') ?>
     <?php include ('includes/shopNavbar.php') ?>
+    <section id="corpus">
     <h1>Voici votre panier !</h1>
 <div class="table">
     	<div class="rowtitle">
@@ -16,13 +17,14 @@
     	</div>
 
         <div class= "row">
-            <a href="#" class= "img"><img src="images\BergerAustralien.jpg"></a>
+            <img class="img" src="images\BergerAustralien.jpg" alt="chien">
             <span class= "name"> Berger Australien</span>
             <span class="price"> 1000 €</span>
             <span class="Quantity"> 1</span>
             <span class="action"> Supprimer</span>
         </div>
-</div>
+</div>  
+    </section>
 </body>
 
     <?php include('includes/footer.php') ?>
