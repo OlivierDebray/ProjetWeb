@@ -37,32 +37,32 @@ if(isset($_POST['forminscription']))
                             }
                             else
                             {
-                                $erreur = "vos mots de passes de correspondent pas !";
+                                $erreur = "Vos mots de passes de correspondent pas !";
                             }
                         }
                         else
                         {
-                            $erreur = "adresse mail déjà utilisée";
+                            $erreur = "Adresse mail déjà utilisée";
                         }
                     }
                     else
                     {
-                        $erreur = "votre adresse mail n'est pas valide !";
+                        $erreur = "Votre adresse mail n'est pas valide !";
                     }
                 }
                 else
                 {
-                    $erreur = "vos adresses ne correspondent pas !";
+                    $erreur = "Vos adresses ne correspondent pas !";
                 }
             }
             else
             {
-                $erreur = "votre Prenom ne doit pas dépasser 255 caractères !";
+                $erreur = "Votre prénom ne doit pas dépasser 255 caractères !";
             }
         }
         else
         {
-            $erreur = "votre nom ne doit pas dépasser 255 caractères !";
+            $erreur = "Votre nom ne doit pas dépasser 255 caractères !";
         }
     }
     else
@@ -73,10 +73,12 @@ if(isset($_POST['forminscription']))
 }
 ?>
 
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="fr">
-<?php include('includes/head.php') ?>
 <head>
+    <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/inscription&connexion.css" />
 </head>
 <body>
@@ -88,7 +90,7 @@ if(isset($_POST['forminscription']))
 
     <div id="formulaire">
         <h1>Inscription</h1>
-        <form method="POST" action ="">
+        <form method="POST" action="inscription.php">
             <table id="table">
                 <tr>
                     <td class="label">
