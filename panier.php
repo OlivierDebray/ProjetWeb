@@ -14,7 +14,15 @@
     		<span class="Quantity"> Quantite</span>
     		<span class="action"> Supprimer</span>
     	</div>
-    </div>
+
+        <div class= "row">
+            <a href="#" class= "img"><img src="images\BergerAustralien.jpg"></a>
+            <span class= "name"> Berger Australien</span>
+            <span class="price"> 1000 €</span>
+            <span class="Quantity"> 1</span>
+            <span class="action"> Supprimer</span>
+        </div>
+</div>
 </body>
 
     <?php include('includes/footer.php') ?>
