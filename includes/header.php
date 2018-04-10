@@ -1,6 +1,6 @@
 <header>
     <div id="en-tete">
-        <img id="logo" src="images/logo.png" alt="Logo Exia Cesi" />
+        <a href="index.php"><img id="logo" src="images/logo.png" alt="Logo Exia Cesi" /></a>
         <?php
         if (isset($_SESSION['id']))
             echo '<p>' . $_SESSION['prenom'] . ' ' . $_SESSION['nom'] . '|' . '<a href="deconnexion.php">Déconnexion</a>' . '</p>';

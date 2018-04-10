@@ -103,7 +103,7 @@ if(isset($_POST['forminscription']))
 
                 <tr>
                     <td class="label">
-                        <label for="prenom">Prenom :</label>
+                        <label for="prenom">Prénom :</label>
                     </td>
                     <td>
                         <input class="champ" type="text" placeholder="Votre prénom" id="prenom" name="prenom" value="<?php if(isset($prenom)) { echo $prenom; } ?>"/>
