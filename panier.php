@@ -9,6 +9,7 @@
     <section id="corpus">
         <h1>Voici votre panier !</h1>
         <div class="table">
+            <div class="wrap">
             	<div class="rowtitle">
                     <span class="image"> </span>
             		<span class= "name"> NomProduit</span>
@@ -18,12 +19,13 @@
             	</div>
 
                 <div class= "row">
-                    <img class="img" src="images\BergerAustralien.jpg" alt="chien">
+                    <span class="image"> </span>
                     <span class= "name"> Berger Australien</span>
                     <span class="price"> 1000 €</span>
                     <span class="Quantity"> 1</span>
                     <span class="action"> Supprimer</span>
                 </div>
+             </div>   
         </div>  
     </section>
 </body>
