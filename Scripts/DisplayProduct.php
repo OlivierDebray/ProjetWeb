@@ -16,10 +16,21 @@ try
     GROUP BY Produit ORDER BY COUNT(Produit) DESC)  ");
 
 
-    while ($donne = $getPopular->fetch())
+    while ($donnes = $getPopular->fetch())
     {
-        echo $donne['Nom'];
+         echo" 
+               <div class='product'>
+                    <div class='name'> {$donnes['Nom']}</div>
+                    
+                    
+                    
+                    <div class='price'> {$donnes['Prix']}</div>
+                    
+                    <div class='description'> {$donnes['Description']}</div>
+                </div>";
     }
+
+    //<img src='{$donnes['Url']}', class='product' />
 }
 catch(Exception $e){
     echo " Exception : " .$e->getMessage(). "\n";
