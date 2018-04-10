@@ -18,13 +18,13 @@ if (isset($_GET['id']) AND ($_GET['id'] > 0)) {
     <link rel="stylesheet" type="text/css" href="css/inscription&connexion.css" />
 </head>
 <body>
-<?php include('includes/header.php') ?>
 
+<?php include('includes/header.php') ?>
 <?php include('includes/mainNavbar.php') ?>
 
 <section id="corpus">
 		<h1>Profil de <?php echo $userinfo['Prenom'] . " " . $userinfo['Nom'] ?></h1>
-		<p>Mail = <?php echo $userinfo['Mail']; ?></p>
+		<p>Mail : <?php echo $userinfo['Mail']; ?></p>
 		<?php
 			if (isset($_SESSION['id']) AND $userinfo['ID_Utilisateurs'] == $_SESSION['id'])
 			{
