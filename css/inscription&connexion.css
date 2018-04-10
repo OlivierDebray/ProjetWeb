@@ -1,0 +1,27 @@
+
+
+#formulaire
+{
+    text-align: center;
+}
+
+#table
+{
+    display: flex;
+    justify-content: center;
+}
+
+.label
+{
+    text-align: right;
+}
+
+td
+{
+    width: 15vw;
+}
+
+input
+{
+    width: 100%;
+}

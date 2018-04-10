@@ -1,1 +1,1 @@
-Page d'accueil du site
+<h1>Bienvenue sur le site du BDE de l'Exia Cesi Orléans !</h1>
