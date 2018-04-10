@@ -10,6 +10,7 @@
         <h1>Voici votre panier !</h1>
         <div class="table">
             	<div class="rowtitle">
+                    <span class="image"> </span>
             		<span class= "name"> NomProduit</span>
             		<span class="price"> Prix</span>
             		<span class="Quantity"> Quantite</span>
