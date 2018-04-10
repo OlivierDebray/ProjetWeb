@@ -8,16 +8,17 @@
 
 try
 {
+    $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root','');
+    $getNewest = $bdd->query("SELECT * FROM Produits");
 
-    $bdd = new PDO('mysqlhost=localhost;dbname=projetweb;charset=utf8', 'root','');
-    $getNewest = $bdd->query("SELECT * FROM Produits ORDER BY nombre_cmd ASC ");
+    $getPopular = $bdd->query("SELECT * FROM produits 
+    WHERE ID_Produits IN (SELECT Produit FROM `commande` 
+    GROUP BY Produit ORDER BY COUNT(Produit) DESC)  ");
 
-    while ($donne = $getNewest->fetch())
+
+    while ($donne = $getPopular->fetch())
     {
-     ?>
-        <p>
-            <strong>Produit</strong> : <?php echo ?>
-        </p>
+        echo $donne['Nom'];
     }
 }
 catch(Exception $e){
