@@ -19,7 +19,7 @@
             	</div>
 
                 <div class= "row">
-                    <span class="image"> </span>
+                    <img class="img" src="images/BergerAustralien.jpg" alt="chien" > 
                     <span class= "name"> Berger Australien</span>
                     <span class="price"> 1000 €</span>
                     <span class="Quantity"> 1</span>
