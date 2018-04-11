@@ -1,5 +1,5 @@
 <nav id="secondary">
     <a>Categories</a>
     <a>Recherche</a>
-    <a>Panier</a>
+    <a href="panier.php"> Panier</a>
 </nav>

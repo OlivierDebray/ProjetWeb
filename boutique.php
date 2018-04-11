@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
     </head>
 <body>
-    <?php include ('includes/header.php')?>
+    <?php include ('includes/header.php') ?>
     <?php include('includes/mainNavbar.php') ?>
     <?php include ('includes/shopNavbar.php') ?>
     <h1 id="corpus">Bienvenue sur la Boutique du BDE !</h1>

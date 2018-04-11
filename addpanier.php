@@ -9,14 +9,13 @@ catch(Exception $e){
 	die('Erreur:' . $e->getmessage());
 }
 
-
 if(isset($_SESSION["id"])) {
 	$id= $_SESSION["id"];
 
 		$reqpanier = $bdd->prepare('SELECT * FROM panier WHERE ID_Utilisateur = $id');
 		$reqpanier->execute();
 
-	while($donnée = $reqpanier->fletch()){ ?>
+	while($donnée = $reqpanier->fetch()){ ?>
 		<div class="table">
 			<div class="wrap">
 				<div class="rowtitle">
