@@ -10,6 +10,7 @@ if(isset($_POST['forminscription']))
     $mail2 = htmlspecialchars($_POST['mail2']);
     $mdp = sha1($_POST['mdp']);
     $mdp2 = sha1($_POST['mdp2']);
+    $mdp3 = htmlspecialchars($_POST['mdp']);
 
     if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']))
     {
@@ -28,16 +29,22 @@ if(isset($_POST['forminscription']))
                         $mailexist = $reqmail->rowCount();
                         if ($mailexist == 0)
                         {
-
-                            if ($mdp == $mdp2)
+                            if (preg_match("~[A-Z]+~", $mdp3) AND preg_match("~[0-9]~", $mdp3) AND strlen($mdp3) > 8)
                             {
-                                $insertmbr = $bdd->prepare("INSERT INTO utilisateurs(nom, prenom, mail, motdepasse) VALUES (?, ?, ?, ?)");
-                                $insertmbr->execute(array($nom, $prenom, $mail, $mdp));
-                                $erreur = "Votre compte a bien été créé !";
+                                if ($mdp == $mdp2)
+                                {
+                                    $insertmbr = $bdd->prepare("INSERT INTO utilisateurs(nom, prenom, mail, motdepasse) VALUES (?, ?, ?, ?)");
+                                    $insertmbr->execute(array($nom, $prenom, $mail, $mdp));
+                                    $erreur = "Votre compte a bien été créé !";
+                                }
+                                else
+                                {
+                                    $erreur = "Vos mots de passes ne correspondent pas !";
+                                }
                             }
                             else
                             {
-                                $erreur = "Vos mots de passes de correspondent pas !";
+                                $erreur = "Veuillez choisir un mot de passe contenant au moins une majuscule, au moins un chiffre et 8 caractères";
                             }
                         }
                         else
