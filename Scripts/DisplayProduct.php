@@ -8,17 +8,29 @@
 
 try
 {
+    $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root','');
+    $getNewest = $bdd->query("SELECT * FROM Produits");
 
-    $bdd = new PDO('mysqlhost=localhost;dbname=projetweb;charset=utf8', 'root','');
-    $getNewest = $bdd->query("SELECT * FROM Produits ORDER BY nombre_cmd ASC ");
+    $getPopular = $bdd->query("SELECT * FROM produits 
+    WHERE ID_Produits IN (SELECT Produit FROM `commande` 
+    GROUP BY Produit ORDER BY COUNT(Produit) DESC)  ");
 
-    while ($donne = $getNewest->fetch())
+
+    while ($donnes = $getPopular->fetch())
     {
-     ?>
-        <p>
-            <strong>Produit</strong> : <?php echo ?>
-        </p>
+         echo" 
+               <div class='product'>
+                    <div class='name'> {$donnes['Nom']}</div>
+                    
+                    
+                    
+                    <div class='price'> {$donnes['Prix']}</div>
+                    
+                    <div class='description'> {$donnes['Description']}</div>
+                </div>";
     }
+
+    //<img src='{$donnes['Url']}', class='product' />
 }
 catch(Exception $e){
     echo " Exception : " .$e->getMessage(). "\n";

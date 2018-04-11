@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 .idea/misc.xml
 .idea/workspace.xml
 .idea/modules.xml
 .idea/vcs.xml
 .idea/ProjetWeb.iml
 .idea/php.xml
+.idea/workspace.xml
+=======
+
+>>>>>>> origin/shop
+includes/head.php
