@@ -18,21 +18,20 @@ try
 
     while ($donnes = $getPopular->fetch())
     {
-         echo" 
-               <div class='product'>
+        echo" 
+               <div class='product'> 
                     <div class='name'> {$donnes['Nom']}</div>
                     
                     
                     
-                    <div class='price'> {$donnes['Prix']}</div>
+                    <div class='price'> Prix: {$donnes['Prix']}</div>
                     
-                    <div class='description'> {$donnes['Description']}</div>
+                    <div class='description'> Description : {$donnes['Description']}</div>
                 </div>";
     }
 
-    //<img src='{$donnes['Url']}', class='product' />
+    //<img src='{$donnes['Url']}', class='imgprod' />
 }
 catch(Exception $e){
     echo " Exception : " .$e->getMessage(). "\n";
 }
-

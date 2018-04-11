@@ -1,4 +1,5 @@
 <nav id="secondary">
     <a>Categories</a>
-    <a>Nouveautés</a>
+    <a>Recherche</a>
+    <a>Panier</a>
 </nav>

@@ -13,7 +13,7 @@
 <section id="corpus">
     <?php
     if (isset($_GET['page'])) {
-        include('pages/mentions.php');
+        include('pages/' . $_GET['page'] . '.php');
     }
     else {
         include('pages/accueil.php');
