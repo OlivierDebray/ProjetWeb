@@ -24,9 +24,9 @@ try
                     
                     
                     
-                    <div class='price'> {$donnes['Prix']}</div>
+                    <div class='price'> Prix: {$donnes['Prix']}</div>
                     
-                    <div class='description'> {$donnes['Description']}</div>
+                    <div class='description'> Description : {$donnes['Description']}</div>
                 </div>";
     }
 

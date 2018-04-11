@@ -12,12 +12,12 @@
 .product{
     background: tomato;
     padding: 5px;
-    width: 200px;
-    height: 150px;
+    width: 400px;
+    height: 300px;
     margin-top: 10px;
     color: white;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
 }
 .name{
