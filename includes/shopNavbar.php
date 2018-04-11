@@ -1,7 +1,7 @@
 <nav id="secondary">
 
-        <a href="">Categories</a>
-        <a href="">Recherche</a>
-        <a href="">Panier</a>
+        <a href="categorie.php">Categories</a>
+        <a href="recherche.php">Recherche</a>
+        <a href="panier.php">Panier</a>
 
 </nav>
