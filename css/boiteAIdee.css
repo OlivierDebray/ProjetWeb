@@ -1,0 +1,50 @@
+#title
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+#title button
+{
+    height: 100%;
+}
+
+.divIdee
+{
+    border-bottom: 2px solid black;
+    margin: 5px 0;
+    padding-bottom: 5px;
+}
+
+.divIdee *:not(p)
+{
+    margin: 0;
+}
+
+.titreIdee
+{
+    display: flex;
+    align-items: baseline;
+}
+
+.contenuIdee
+{
+    display: flex;
+    align-items: center;
+}
+
+.contenuIdee img
+{
+    height: 30vh;
+}
+
+.contenuIdee p
+{
+    margin: 5px;
+}
+
+textarea
+{
+    resize: none;
+    width: 100%;
+}
