@@ -10,9 +10,15 @@
     <?php include('includes/mainNavbar.php') ?>
     <?php include ('includes/shopNavbar.php') ?>
     <h1 id="corpus">Bienvenue sur la Boutique du BDE !</h1>
-    <div id="corpus" class="products"></
-    <p> <?php include ('Scripts/DisplayProduct.php') ?></p>
 
+    <div id="corpus" class="products">
+        <p> Les plus Populaires ! </p>
+        <p> <?php include('Scripts/DisplayPopularProduct.php') ?></p>
+    </div>
+
+    <div id="corpus" class="products">
+        <p> Les nouveautés !</p>
+        <p> <?php include ('Scripts/DisplayNewProducts.php') ?></p>
     </div>
 </body>
 
