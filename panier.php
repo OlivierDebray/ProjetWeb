@@ -1,10 +1,4 @@
-<?php
-
-$bdd = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
-
-?>
-
-
+<!DOCTYPE html>
 <html>
     <?php include('includes/head.php') ?>
 
