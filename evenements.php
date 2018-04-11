@@ -32,7 +32,7 @@
         <tr>
             <td>
                 <h2>
-                    <a href="">Boite à idées</a>
+                    <a href="boiteAIdee.php">Boite à idées</a>
                 </h2>
                 <p>Proposez ou votez pour des idées d'activités</p>
             </td>
