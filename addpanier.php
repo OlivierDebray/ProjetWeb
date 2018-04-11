@@ -2,6 +2,7 @@
 session_start();
 try{
 	$bdd = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
+	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 }
 
 catch(Exception $e){
@@ -12,10 +13,12 @@ catch(Exception $e){
 if(isset($_SESSION["id"])) {
 	$id= $_SESSION["id"];
 
-		$reqpanier = $bdd->prepare('SELECT * FROM panier WHERE ID_Utilisateur = $id');
+		$reqpanier = $bdd->prepare("SELECT * FROM test WHERE ID_Utilisateur = '$id'");
 		$reqpanier->execute();
-
-	while($donnée = $reqpanier->fetch()){ ?>
+echo "test2";
+	while($donnée = $reqpanier->fetch()){ 
+echo "test1";
+		?>
 		<div class="table">
 			<div class="wrap">
 				<div class="rowtitle">
@@ -30,7 +33,7 @@ if(isset($_SESSION["id"])) {
 					<img class="img" src="images/BergerAustralien.jpg" alt="chien" > 
 					<span class= "name"> Berger Australien</span>
 					<span class="price"> 1000 €</span>
-					<span class="Quantity"> 1</span>
+					<span class="Quantity"> <?php echo $donnée['quantite']; ?></span>
 					<span class="action"> Supprimer</span>
 				</div>
 			</div>   
