@@ -24,7 +24,7 @@ if(isset($_SESSION["id"])) {
 					<span class= "name"><?php echo $donnée['Nom']?></span>
 					<span class="price"><?php echo $donnée['Prix']?></span>
 					<span class="Quantity"> <?php echo $donnée['quantite']; ?></span>
-					<img class= "corb" src="images/corbeille.jpg" alt="sup">
+					<a href="supprimerpanier.php?id=<?php echo $donnée['ID_Produits']; ?>"><img class= "corb" src="images/corbeille.jpg" alt"sup"></a>
 				</div>
 		<?php
 	}
