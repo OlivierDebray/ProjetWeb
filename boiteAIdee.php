@@ -38,6 +38,25 @@
                         <img src="images/Suggestionbox<?php echo $reponse['Image'] ?>" alt="Image de l'idée" />
                         <p><?php echo $reponse['Description'] ?></p>
                     </div>
+                    <div class="userAction">
+                        <?php $likeReq = $bdd->prepare("SELECT COUNT(*) FROM vote WHERE Evenement=?");
+                        $likeReq->execute(array($reponse['ID_Evenements']));
+                        $likes = $likeReq->fetch();
+
+                        $userLikeReq = $bdd->prepare("SELECT COUNT(*) FROM vote WHERE Utilisateur=? AND Evenement=?");
+                        $userLikeReq->execute(array($_SESSION['id'],$reponse['ID_Evenements']));
+                        $usersLike = $userLikeReq->fetch();
+
+                        echo "<img src='images/thumb%20up.png' ";
+                        if ($usersLike['COUNT(*)'] == 0)
+                            echo "onclick='likeIdea(".$_SESSION['id'].",".$reponse['ID_Evenements'].",".$likes['COUNT(*)'].")'";
+                        echo " />";
+                        echo "<label id='like" . $reponse['ID_Evenements'] . "'>" . $likes['COUNT(*)'] . " like(s)</label>";
+                        $likeReq->closeCursor();
+                        $userLikeReq->closeCursor() ?>
+                        <textarea rows="1" maxlength="255"></textarea>
+                        <button>Envoyer le<br/>commentaire</button>
+                    </div>
                 </div>
                 <?php
             }
@@ -85,4 +104,7 @@
 <?php include('includes/footer.php') ?>
 
 </body>
+
+<script src="javascript/likeIdea.js"></script>
+
 </html>
