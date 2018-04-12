@@ -30,8 +30,8 @@ try
                     <div class='price'> Prix : {$donnes['Prix']}</div>
                     
                     <div class='description'> Description : {$donnes['Description']}</div>
-                    
-                    <a href="AjoutBDDpanier.php?id=<?php echo $donnes['ID_Produits']; ?>"> Ajouter au panier</a>
+
+                    <button><a href="AjoutBDDpanier.php?id=<?php echo $donnes['ID_Produits']; ?>"> Ajouter au panier</a></button>
                 </div>
 
 <?php
