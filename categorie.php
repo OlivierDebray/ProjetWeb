@@ -63,22 +63,22 @@
 
     <?php
        $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
-       $shirtReq = $bdd->prepare("SELECT * FROM evenements WHERE Etat = ?");
+       $shirtReq = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'shirt'");
        $shirtReq->execute();
 
-    while ($reponse = $ideeReq->fetch())
+    while ($reponse = $shirtReq->fetch())
     { ?>
 
             <div class="product">
                 <div class='name'> <?php echo $reponse['Nom']?></div>
 
-        <img src='{$reponse['url']}', class='imgprod' />
+                <img src='images/produits/<?php echo $reponse['url']?>', class='imgprod' />
 
 
-        <div class='price'> Prix: {$reponse['Prix']}</div>
+                <div class='price'>Prix : <?php echo $reponse['Prix']?></div>
 
-        <div class='description'> Description : {$donnes['Description']}</div>
-    </div>";
+                <div class='description'> Description : <?php echo $reponse['Description']?></div>
+    </div>
 
 
 

@@ -20,13 +20,15 @@ try
         echo" 
                <div class='product'> 
                     <div class='name'> {$donnes['Nom']}</div>
-                    <img src='{$donnes['url']}', class='imgprod' />
+                    <img src='images/produits/{$donnes['url']}', class='imgprod' />
                     
                     
                     
                     <div class='price'> Prix: {$donnes['Prix']}</div>
                     
                     <div class='description'> Description : {$donnes['Description']}</div>
+                    
+                    <a href=''> <button> Ajouter au Panier </button></a>
                 </div>";
     }
 
