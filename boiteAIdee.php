@@ -47,15 +47,12 @@
                         $userLikeReq->execute(array($_SESSION['id'],$reponse['ID_Evenements']));
                         $usersLike = $userLikeReq->fetch();
 
-                        echo "<img src='images/thumb%20up.png' ";
-                        if ($usersLike['COUNT(*)'] == 0)
-                            echo "onclick='likeIdea(".$_SESSION['id'].",".$reponse['ID_Evenements'].",".$likes['COUNT(*)'].")'";
+                        echo "<img id='img".$reponse['ID_Evenements']."' src='images/thumb%20up.png' ";
+                        echo "onclick='likeIdea(".$_SESSION['id'].",".$reponse['ID_Evenements'].",".$likes['COUNT(*)'].",".$usersLike['COUNT(*)'].")'";
                         echo " />";
                         echo "<label id='like" . $reponse['ID_Evenements'] . "'>" . $likes['COUNT(*)'] . " like(s)</label>";
                         $likeReq->closeCursor();
                         $userLikeReq->closeCursor() ?>
-                        <textarea rows="1" maxlength="255"></textarea>
-                        <button>Envoyer le<br/>commentaire</button>
                     </div>
                 </div>
                 <?php
