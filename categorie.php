@@ -1,17 +1,19 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <?php include('includes/head.php') ?>
-        <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
-    </head>
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <?php include('includes/head.php') ?>
+    <link rel="stylesheet" type="text/css" href="css/evenements.css"/>
+</head>
 <body>
-    <?php include ('includes/header.php')?>
-    <?php include('includes/mainNavbar.php') ?>
-    <?php include ('includes/shopNavbar.php') ?>
+<?php include('includes/header.php') ?>
 
-    <h1 id="corpus">Catégories</h1>
+<?php include('includes/mainNavbar.php') ?>
+<?php include ('includes/shopNavbar.php')?>
+
 </body>
 
 
