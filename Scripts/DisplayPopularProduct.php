@@ -31,7 +31,7 @@ try
                     
                     <div class='description'> Description : {$donnes['Description']}</div>
                     
-                    <a href="AjoutBDDpanier.php?id=<?php echo $donnes['ID_Produits']; ?>"> <button> Ajouter au Panier </button></a>
+                    <a href="AjoutBDDpanier.php?id=<?php echo $donnes['ID_Produits']; ?>"> Ajouter au panier</a>
                 </div>
 
 <?php
