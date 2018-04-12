@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
+<head>
     <?php include('includes/head.php') ?>
+    <link rel="stylesheet" type="text/css" href="css/panier.css" />
+</head>
 
 <body>
     <?php include ('includes/header.php') ?>
@@ -8,8 +11,21 @@
     <?php include ('includes/shopNavbar.php') ?>
     <section id="corpus">
         <h1>Voici votre panier !</h1>
+
+<div class="table">
+        <div class="wrap">
+                <div class="rowtitle">
+                    <span class="image"> </span>
+                    <span class= "name"> NomProduit</span>
+                    <span class="price"> Prix</span>
+                    <span class="Quantity"> Quantite</span>
+                    <span class="action"> Supprimer</span>
+                </div>
 <p> <?php include('addpanier.php') ?></p>
  
+        </div>   
+ </div> 
+
     </section>
 </body>
 

@@ -13,36 +13,24 @@ catch(Exception $e){
 if(isset($_SESSION["id"])) {
 	$id= $_SESSION["id"];
 
-		$reqpanier = $bdd->prepare("SELECT * FROM test WHERE ID_Utilisateur = '$id'");
+		$reqpanier = $bdd->prepare(
+"SELECT * FROM test2 INNER JOIN test ON test2.ID_Produits = test.ID_Produits WHERE test.ID_Utilisateur = '$id'");
 		$reqpanier->execute();
-echo "test2";
-	while($donnée = $reqpanier->fetch()){ 
-echo "test1";
-		?>
-		<div class="table">
-			<div class="wrap">
-				<div class="rowtitle">
-					<span class="image"> </span>
-					<span class= "name"> NomProduit</span>
-					<span class="price"> Prix</span>
-					<span class="Quantity"> Quantite</span>
-					<span class="action"> Supprimer</span>
-				</div>
 
+	while($donnée = $reqpanier->fetch()){ 
+		?>
 				<div class= "row">
 					<img class="img" src="images/BergerAustralien.jpg" alt="chien" > 
-					<span class= "name"> Berger Australien</span>
-					<span class="price"> 1000 €</span>
+					<span class= "name"><?php echo $donnée['Nom']?></span>
+					<span class="price"><?php echo $donnée['Prix']?></span>
 					<span class="Quantity"> <?php echo $donnée['quantite']; ?></span>
-					<span class="action"> Supprimer</span>
+					<img class= "corb" src="images/corbeille.jpg" alt="sup">
 				</div>
-			</div>   
-		</div> 
 		<?php
 	}
 }
 else {
-	
+	die("Vous n'avez pas de commandes");
 }
 
 ?>
