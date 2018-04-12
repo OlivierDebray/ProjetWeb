@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 
 <html>
@@ -11,18 +13,19 @@
     <?php include ('includes/shopNavbar.php') ?>
     <h1 id="corpus">Bienvenue sur la Boutique du BDE !</h1>
 
-    <div id="corpus" class="products">
-        <p> Les plus Populaires ! </p>
-        <p> <?php include('Scripts/DisplayPopularProduct.php') ?></p>
-    </div>
+    <section id="corpus" class="products" >
+        <h2> Les plus Populaires ! </h2>
+        <p> <?php include('scripts/DisplayPopularProduct.php') ?></p>
+    </section>
 
-    <div id="corpus" class="products">
+    <section id="corpus" class="products">
         <p> Les nouveautés !</p>
-        <p> <?php include ('Scripts/DisplayNewProducts.php') ?></p>
-    </div>
+        <p> <?php include('scripts/DisplayNewProducts.php') ?></p>
+    </section>
+
+    <?php include('includes/footer.php') ?>
 </body>
 
 
-    <?php include('includes/footer.php') ?>
 </html>
 

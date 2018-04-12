@@ -44,7 +44,7 @@ nav
 
 nav a
 {
-    flex: auto;
+    width: 100%;
 
     text-align: center;
     font-size: 1.2em;
@@ -123,5 +123,15 @@ footer a:hover
         font-size: 1em;
 
         background: linear-gradient(to bottom, white, #b81402);
+    }
+
+    nav
+    {
+        flex-wrap: wrap;
+    }
+
+    #corpus
+    {
+        margin: 1.25vh 6.25vw;
     }
 }
