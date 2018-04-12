@@ -13,7 +13,7 @@
 {
     border-bottom: 2px solid black;
     margin: 5px 0;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
 .divIdee *:not(p)
@@ -31,6 +31,7 @@
 {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .contenuIdee img
@@ -43,8 +44,36 @@
     margin: 5px;
 }
 
-textarea
+.userAction
+{
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+}
+
+.userAction img
+{
+    height: 2em;
+    flex: 0;
+}
+
+.userAction *
+{
+    flex: auto;
+}
+
+form textarea
 {
     resize: none;
     width: 100%;
+}
+
+@media all and (max-width: 550px) {
+    .contenuIdee
+    {
+        flex-wrap: wrap;
+    }
 }
