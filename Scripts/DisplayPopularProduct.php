@@ -8,6 +8,8 @@
 
 try
 {
+
+
     $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root','');
     $getNewest = $bdd->query("SELECT * FROM Produits");
 
@@ -22,6 +24,7 @@ try
                <div class='product'> 
                     <div class='name'> {$donnes['Nom']}</div>
                     
+                    <img src='{$donnes['url']}', class='imgprod' />
                     
                     
                     <div class='price'> Prix: {$donnes['Prix']}</div>
@@ -30,7 +33,7 @@ try
                 </div>";
     }
 
-    //<img src='{$donnes['Url']}', class='imgprod' />
+
 }
 catch(Exception $e){
     echo " Exception : " .$e->getMessage(). "\n";
