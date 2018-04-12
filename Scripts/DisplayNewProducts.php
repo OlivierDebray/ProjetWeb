@@ -21,12 +21,12 @@ try
                     <div class='name'> <?php echo $donnes['Nom']?></div>
                     <img src='images/produits/<?php echo $donnes['url']?>', class='imgprod' />
                     
-                    <div class='price'> Prix: <?php echo $donnes['Prix']?></div>
+                    <div class='price'> Prix:<?php echo $donnes['Prix']?></div>
                     
-                    <div class='description'> Description : <?php echo$donnes['Description']?></div>
+                    <div class='description'> Description :<?php echo$donnes['Description']?></div>
                     
                     <a href=''> <button> Ajouter au Panier </button></a>
-                </div>";
+                </div>
 
         <?php
     }
