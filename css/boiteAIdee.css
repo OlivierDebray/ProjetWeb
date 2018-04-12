@@ -60,12 +60,6 @@
     flex: 0;
 }
 
-.userAction textarea
-{
-    resize: none;
-    width: 75%;
-}
-
 .userAction *
 {
     flex: auto;

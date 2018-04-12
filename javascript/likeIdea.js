@@ -1,4 +1,4 @@
-function likeIdea (idUser , idIdea , likeCount) {
+function likeIdea (idUser , idIdea , likeCount , userLike) {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -11,8 +11,22 @@ function likeIdea (idUser , idIdea , likeCount) {
             document.getElementById("txtHint").innerHTML = this.responseText;
         }
     };
-    xmlhttp.open("GET","scripts/likeIdea.php?idea="+idIdea+"&user="+idUser,true);
+    xmlhttp.open("GET","scripts/likeIdea.php?idea="+idIdea+"&user="+idUser+"&userLike="+userLike,true);
     xmlhttp.send();
 
-    document.getElementById("like"+idIdea).textContent = (likeCount+1)+" like(s)";
+
+    if (userLike == 0) {
+        likeCount++;
+        userLike = 1;
+    }
+    else {
+        likeCount--;
+        userLike = 0
+    }
+
+    document.getElementById("like"+idIdea).textContent = likeCount +" like(s)";
+
+    document.getElementById("img"+idIdea).onclick = function () {
+        likeIdea(idUser , idIdea , likeCount , userLike);
+    };
 }
