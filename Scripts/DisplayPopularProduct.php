@@ -27,7 +27,7 @@ try
                     <img src='{$donnes['url']}', class='imgprod' />
                     
                     
-                    <div class='price'> Prix: {$donnes['Prix']}</div>
+                    <div class='price'> Prix : {$donnes['Prix']}</div>
                     
                     <div class='description'> Description : {$donnes['Description']}</div>
                 </div>";
