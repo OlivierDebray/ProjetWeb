@@ -11,6 +11,7 @@ if(isset($_POST['forminscription']))
     $mdp = sha1($_POST['mdp']);
     $mdp2 = sha1($_POST['mdp2']);
     $mdp3 = htmlspecialchars($_POST['mdp']);
+    $status = "0";
 
     if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']))
     {
@@ -33,8 +34,8 @@ if(isset($_POST['forminscription']))
                             {
                                 if ($mdp == $mdp2)
                                 {
-                                    $insertmbr = $bdd->prepare("INSERT INTO utilisateurs(nom, prenom, mail, motdepasse) VALUES (?, ?, ?, ?)");
-                                    $insertmbr->execute(array($nom, $prenom, $mail, $mdp));
+                                    $insertmbr = $bdd->prepare("INSERT INTO utilisateurs(nom, prenom, mail, motdepasse, status) VALUES (?, ?, ?, ?, ?)");
+                                    $insertmbr->execute(array($nom, $prenom, $mail, $mdp, $status));
                                     $erreur = "Votre compte a bien été créé !";
                                 }
                                 else
