@@ -1,0 +1,80 @@
+#title
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+#title button
+{
+    height: inherit;
+}
+
+.divIdee
+{
+    border-bottom: 2px solid black;
+    margin: 5px 0;
+    padding-bottom: 10px;
+}
+
+.divIdee *:not(p)
+{
+    margin: 0;
+}
+
+.titreIdee
+{
+    display: flex;
+    align-items: baseline;
+}
+
+.contenuIdee
+{
+    display: flex;
+    align-items: center;
+}
+
+.imgIdee
+{
+    height: 30vh;
+}
+
+.contenuIdee p
+{
+    margin: 5px;
+}
+
+.userAction
+{
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+}
+
+.userAction img
+{
+    height: 2em;
+    flex: 0;
+    cursor: pointer;
+}
+
+.userAction *
+{
+    flex: auto;
+}
+
+form textarea
+{
+    resize: none;
+    width: 100%;
+}
+
+@media all and (max-width: 550px) {
+    .contenuIdee
+    {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

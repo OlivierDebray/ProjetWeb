@@ -18,29 +18,25 @@
         <tr>
             <td>
                 <h2>
-                    <a href="">Activités</a>
+                    <a href="listeEvenements.php?page=avenir">Evénements à venir</a>
                 </h2>
-                <p>Découvrez les activités proposées par les étudiants</p>
-            </td>
-            <td>
-                <h2>
-                    <a href="">Manifestations du BDE</a>
-                </h2>
-                <p>Découvrez les manifestations organisées par le BDE</p>
+                <p>Découvrez les évenements à venir</p>
             </td>
         </tr>
         <tr>
             <td>
                 <h2>
-                    <a href="">Boite à idées</a>
-                </h2>
-                <p>Proposez ou votez pour des idées d'activités</p>
-            </td>
-            <td>
-                <h2>
-                    <a href="">Evénements passés</a>
+                    <a href="listeEvenements.php?page=passes">Evénements passés</a>
                 </h2>
                 <p>Consultez les événements précédents</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h2>
+                    <a href="boiteAIdee.php">Boite à idées</a>
+                </h2>
+                <p>Proposez ou votez pour des idées d'activités</p>
             </td>
         </tr>
     </table>
