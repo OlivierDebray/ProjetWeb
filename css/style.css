@@ -27,13 +27,13 @@ body
 #en-tete a
 {
     text-decoration: none;
-    color: #8d8d8d;
+    color: lightgrey;
 }
 
 #en-tete a:hover
 {
     text-decoration: underline;
-    color: lightgrey;
+    color: #8d8d8d;
 }
 
 nav
