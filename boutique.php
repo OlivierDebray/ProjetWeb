@@ -13,14 +13,14 @@
     <?php include ('includes/shopNavbar.php') ?>
     <h1 id="corpus">Bienvenue sur la Boutique du BDE !</h1>
 
-    <section id="corpus" class="products" >
+    <section id="corpus">
         <h2> Les plus Populaires ! </h2>
-        <p> <?php include('scripts/DisplayPopularProduct.php') ?></p>
+        <div class="products"> <?php include('scripts/DisplayPopularProduct.php') ?></div>
     </section>
 
-    <section id="corpus" class="products">
-        <p> Les nouveautés !</p>
-        <p> <?php include('scripts/DisplayNewProducts.php') ?></p>
+    <section id="corpus">
+        <h2> Les nouveautés !</h2>
+        <div class="products"> <?php include('scripts/DisplayNewProducts.php') ?></div>
     </section>
 
     <?php include('includes/footer.php') ?>

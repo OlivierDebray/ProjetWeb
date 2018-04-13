@@ -13,7 +13,10 @@
 <?php include('includes/mainNavbar.php') ?>
 <?php include ('includes/shopNavbar.php') ?>
 
-<h1 id="corpus">Catégories</h1>
+<h1 id="corpus">Rechercher un Produit.</h1>
+<section id="corpus">
+    
+</section>
 </body>
 
 

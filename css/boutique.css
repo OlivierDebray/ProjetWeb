@@ -1,7 +1,6 @@
 
 .products{
     display : flex;
-
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -10,12 +9,6 @@
 
 }
 
-#corpus p
-{
-    font-family: Calibri, serif;
-    font-size: 20px;
-    text-align: center;
-}
 
 .product{
     background: #888889;
@@ -24,9 +17,8 @@
     height: 300px;
     margin-top: 10px;
     color: white;
-    font-weight: bold;
-    font-size: 30px;
-    text-align: center;
+    font-size:25px;
+    text-align: left;
     border-radius: 25% 10%;;
 
 }
@@ -40,9 +32,31 @@
     max-height: 150px;
     border-radius: 30px;
 }
-.name{
+
+.product button
+{
+    display: inline-block;
+    background-color: #ff312a;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 15px;
+    cursor: pointer;
 
 }
-.price{
+.product button:hover
+{
+    background-color: #c02621;
+}
 
+.name{
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+}
+.price{
+    font-weight: bold;
+    font-size: 30px;
 }
