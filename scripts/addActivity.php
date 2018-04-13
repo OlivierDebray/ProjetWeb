@@ -24,7 +24,7 @@ if (empty($delete)) {
     } else if (isset($_GET['img'])) {
         $new_img_name = $_GET['img'];
     } else {
-        $new_img_name = "/activity.png";
+        $new_img_name = "activity.png";
     }
 
     if (!isset($_GET['id'])) {

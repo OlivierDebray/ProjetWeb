@@ -64,6 +64,7 @@
                         $userLikeReq->closeCursor() ?>
                     </div>
                     <?php if ($status == 1) { ?>
+                        <button onclick="window.location.assign('?page=submit&id=<?php echo $reponse['ID_Evenements'] ?>')">Gérer cette idée</button>
                     <?php } ?>
                 </div>
                 <?php
