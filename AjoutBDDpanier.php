@@ -26,13 +26,13 @@ if(isset($_SESSION["id"])) {
 			if($idP == $donnée['Produit']){
 			$incbddpanier = $bdd->prepare("UPDATE panier SET Quantite = Quantite + 1 WHERE Produit = '$idP'");
 			$incbddpanier->execute();
-			print_r($donnée); echo 'test1';
+			
 		}
 
 		else if($donnée['Produit']!= $idP){
 			$ajoutbddpanier = $bdd->prepare("INSERT INTO panier (Utilisateur, Produit, Quantite) VALUES ( $id, $idP, 1)");
 			$ajoutbddpanier->execute();
-			print_r($donnée); echo 'test2';
+			
 		
 		}	
 	 	
@@ -41,7 +41,7 @@ if(isset($_SESSION["id"])) {
 
 
 
-		//header('location: boutique.php');
+		header('location: boutique.php');
 	
 
 }
