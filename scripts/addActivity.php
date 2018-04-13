@@ -5,6 +5,7 @@ $event = $_POST['event'];
 $description = $_POST['description'];
 $location = $_POST['location'];
 $delete = $_POST['delete'];
+$date = $_POST['date'];
 
 if (empty($delete)) {
     if(!empty($_FILES['image']['name']) AND isset($_FILES['image'])){
@@ -39,7 +40,7 @@ if (empty($delete)) {
     }
     else {
         $bdd->query("DELETE FROM vote WHERE Evenement=".$_GET['id']);
-        $bdd->query("UPDATE evenements SET Nom='".$event."', Description='".$description."', Lieu='".$location."', Etat='1' WHERE ID_Evenements=".$_GET['id']);
+        $bdd->query("UPDATE evenements SET Nom='".$event."', Description='".addslashes($description)."', Date='".$date."', Lieu='".$location."', Etat=1 WHERE ID_Evenements=".$_GET['id']);
         $bdd->query("UPDATE evenements SET Image='/".$new_img_name."' WHERE ID_Evenements=".$_GET['id']);
     }
 }
@@ -48,6 +49,6 @@ else if ($delete == "Supprimer") {
     $bdd->query("DELETE FROM evenements WHERE ID_Evenements=".$_GET['id']);
 }
 
-header('Location:../boiteaidee.php?page=submit&result=1');
+header('Location:../boiteaidee.php?page=submit&result=1'.$date);
 ?>
 
