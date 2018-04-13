@@ -64,7 +64,6 @@
                         $userLikeReq->closeCursor() ?>
                     </div>
                     <?php if ($status == 1) { ?>
-                        <a href="?page=submit&id=<?php echo $reponse['ID_Evenements'] ?>">Gérer cette idée</a>
                     <?php } ?>
                 </div>
                 <?php
