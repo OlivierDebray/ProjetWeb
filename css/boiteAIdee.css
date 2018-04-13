@@ -6,7 +6,7 @@
 
 #title button
 {
-    height: 100%;
+    height: inherit;
 }
 
 .divIdee
