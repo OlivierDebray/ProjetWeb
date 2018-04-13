@@ -11,7 +11,7 @@
     <?php include ('includes/shopNavbar.php') ?>
     <section id="corpus">
         <h1>Voici votre panier !</h1>
-
+    <button><a href="AnnulerPanier.php"> Supprimer votre panier</a></button>    
 <div class="table">
         <div class="wrap">
                 <div class="rowtitle">
@@ -22,7 +22,7 @@
                     <span class="action"> Supprimer</span>
                 </div>
                 <p> <?php include('addpanier.php') ?></p>
-                
+
             </div>   
         </div> 
     </br>
