@@ -32,7 +32,7 @@
 
             <div id="title">
                 <h1>Boite à idées</h1>
-                <a href="?page=submit"><button>Proposer une idée</button></a>
+                <button onclick="window.location.assign('?page=submit')">Proposer une idée</button>
             </div>
 
             <?php
@@ -57,7 +57,7 @@
                         $usersLike = $userLikeReq->fetch();
 
                         echo "<img id='img".$reponse['ID_Evenements']."' src='images/thumb%20up.png' ";
-                        echo "onclick='likeIdea(".$_SESSION['id'].",".$reponse['ID_Evenements'].",".$likes['COUNT(*)'].",".$usersLike['COUNT(*)'].")'";
+                        echo "onclick='likeIdea(".$_SESSION['id'].",".$reponse['ID_Evenements'].",".$likes['COUNT(*)'].",".$usersLike['COUNT(*)'].")' ";
                         echo "alt='Miniature originale' />";
                         echo "<label id='like" . $reponse['ID_Evenements'] . "'>" . $likes['COUNT(*)'] . " like(s)</label>";
                         $likeReq->closeCursor();
@@ -80,8 +80,10 @@
                 $idee = $ideeReq->fetch();
                 $ideeReq->closeCursor();
             }
+            echo "<h1>";
+            if ($boolID) { echo "Gestion d'une idée"; } else { echo "Proposition d'une idée"; }
+            echo "</h1>";
             ?>
-            <h1>Proposition d'une idée</h1>
             <form method="POST" action="scripts/addActivity.php<?php if ($boolID) { echo "?id='".$_GET['id']."'&img='".$idee['Image']."'"; } ?>" autocomplete="on" enctype="multipart/form-data">
                 <p>
                     <label for="event">
@@ -93,6 +95,14 @@
                         Lieu :
                     </label>
                     <input type="text" name="location" id="location" placeholder="Ex: Orléans" <?php if ($boolID) { echo "value='".$idee['Lieu']."'"; } ?>/>
+                    <?php
+                    if ($boolID) { ?>
+                        <label for="date">
+                            Date :
+                        </label>
+                        <input type="date" name="date" id="date" required/>
+                    <?php }
+                    ?>
                 </p>
                 <p>
                     <label for="description">
@@ -102,10 +112,8 @@
                     <textarea name="description" id="description" maxlength="255"><?php if ($boolID) { echo $idee['Description']; } ?></textarea>
                 </p>
                 <p>
-                    <label for="image">
-                        Image :
-                    </label>
-                    <?php if ($boolID) { echo "<img class='imgIdee' src='images/Suggestionbox/".$idee['Image']."'/>"; } ?>
+                    Image :
+                    <?php if ($boolID) { echo "<img alt='Miniature originale' class='imgIdee' src='images/Suggestionbox/".$idee['Image']."'/>"; } ?>
                     <input type="file" name="image"/>
                 </p>
                 <p>
