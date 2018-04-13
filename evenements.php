@@ -14,32 +14,36 @@
 
 <section id="corpus">
     <h1>Bienvenue dans la section événements du BDE !</h1>
-    <table>
-        <tr>
-            <td>
+    <div class="mainContainer">
+        <div class="itemContainer" onclick="window.location.assign('listeEvenements.php?page=avenir')">
+            <h2>
+                Evénements à venir
+            </h2>
+            <p>Découvrez les évenements à venir</p>
+        </div>
+        <div class="itemContainer" onclick="window.location.assign('listeEvenements.php?page=passes')">
+            <h2>
+                Evénements passés
+            </h2>
+            <p>Consultez les événements précédents</p>
+        </div>
+        <div class="itemContainer" onclick="window.location.assign('boiteAIdee.php')">
+            <h2>
+                Boite à idées
+            </h2>
+            <p>Proposez ou votez pour des idées d'activités</p>
+        </div>
+        <?php
+        if (isset($_SESSION['etat']) AND ($_SESSION['etat'] == 1)) { ?>
+            <div class="itemContainer" onclick="window.location.assign('')">
                 <h2>
-                    <a href="listeEvenements.php?page=avenir">Evénements à venir</a>
+                    Ajouter un événement
                 </h2>
-                <p>Découvrez les évenements à venir</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h2>
-                    <a href="listeEvenements.php?page=passes">Evénements passés</a>
-                </h2>
-                <p>Consultez les événements précédents</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h2>
-                    <a href="boiteAIdee.php">Boite à idées</a>
-                </h2>
-                <p>Proposez ou votez pour des idées d'activités</p>
-            </td>
-        </tr>
-    </table>
+                <p>Ajouter un événement organisé par le BDE</p>
+            </div>
+        <?php }
+        ?>
+    </div>
 </section>
 
 <?php include('includes/footer.php') ?>

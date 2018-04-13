@@ -1,25 +1,31 @@
-table
+.mainContainer
 {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     text-align: center;
 }
 
-td
+.itemContainer
 {
+    width: 50%;
     border: 2px solid #cdbeaa;
     border-radius: 15px;
     padding: 0.5vw;
+    cursor: pointer;
 }
 
-td a
+.itemContainer h2
 {
     color: #5f5f5f;
-    text-decoration: none;
 }
 
-td a:hover
+.itemContainer:hover
 {
-    color: #878787;
-    border-bottom: 2px solid grey;
+    background-color: #e6e6e6;
+}
+
+.itemContainer:hover h2
+{
+    text-decoration: underline grey;
 }

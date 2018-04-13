@@ -84,7 +84,7 @@
             if ($boolID) { echo "Gestion d'une idée"; } else { echo "Proposition d'une idée"; }
             echo "</h1>";
             ?>
-            <form method="POST" action="scripts/addActivity.php<?php if ($boolID) { echo "?id='".$_GET['id']."'&img='".$idee['Image']."'"; } ?>" autocomplete="on" enctype="multipart/form-data">
+            <form method="POST" action="scripts/addActivity.php<?php echo "?idUser=".$_SESSION['id']; if ($boolID) { echo "&id='".$_GET['id']."'&img='".$idee['Image']."'"; } ?>" autocomplete="on" enctype="multipart/form-data">
                 <p>
                     <label for="event">
                         Titre :
