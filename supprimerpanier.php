@@ -13,9 +13,9 @@ catch(Exception $e){
 if(isset($_SESSION["id"])) {
 	$id= $_SESSION["id"];
 
-$id = $_GET['id'];
+$idP=$_GET['id'];
 
-$supprimer = $bdd->prepare("DELETE FROM test WHERE ID_Produits = '$id'");
+$supprimer = $bdd->prepare("DELETE FROM panier WHERE Produit = '$idP'");
 $supprimer-> execute();
 
 header('location: panier.php');

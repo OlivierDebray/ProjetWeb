@@ -20,7 +20,7 @@ try
         ?>
                <div class='product'> 
                     <div class='name'><?php echo $donnes['Nom']?></div>
-                    <img src='images/produits/<?php echo $donnes['url']?>, class='imgprod' />
+                    <img src='images/produits/<?php echo $donnes['url']?>', class='imgprod' />
                     
                     
                     
@@ -28,10 +28,10 @@ try
                     
                     <div class='description'> Description : <?php echo $donnes['Description']?></div>
                     
-                   <button><a href="AjoutBDDpanier.php?id=<?php echo $donnes['ID_Produits']; ?>"> Ajouter au panier</a></button>
+                   <button><a href="AjoutBDDpanier.php?idproduit=<?php echo $donnes['ID_Produits']; ?>"> Ajouter au panier</a></button>
                 </div>
 
-            ?>
+
 <?php
     }
 

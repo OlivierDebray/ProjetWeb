@@ -14,7 +14,7 @@ if(isset($_SESSION["id"])) {
 	$id= $_SESSION["id"];
 
 		$reqpanier = $bdd->prepare(
-"SELECT * FROM test2 INNER JOIN test ON test2.ID_Produits = test.ID_Produits WHERE test.ID_Utilisateur = '$id'");
+"SELECT * FROM produits INNER JOIN panier ON produits.ID_Produits = panier.Produit WHERE panier.Utilisateur = '$id'");
 		$reqpanier->execute();
 
 	while($donnée = $reqpanier->fetch()){ 
@@ -23,8 +23,8 @@ if(isset($_SESSION["id"])) {
 					<img class="img" src="images/BergerAustralien.jpg" alt="chien" > 
 					<span class= "name"><?php echo $donnée['Nom']?></span>
 					<span class="price"><?php echo $donnée['Prix']?></span>
-					<span class="Quantity"> <?php echo $donnée['quantite']; ?></span>
-					<a href="supprimerpanier.php?id=<?php echo $donnée['ID_Produits']; ?>"><img class= "corb" src="images/corbeille.jpg" alt"sup"></a>
+					<span class="Quantity"> <?php echo $donnée['Quantite']; ?></span>
+					<a href="supprimerpanier.php?id=<?php echo $donnée['Produit']; ?>"><img class= "corb" src="images/corbeille.jpg" alt"sup"></a>
 				</div>
 		<?php
 	}
