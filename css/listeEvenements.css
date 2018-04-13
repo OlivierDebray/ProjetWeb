@@ -9,36 +9,36 @@
     height: 100%;
 }
 
-.divIdee
+.divEvent
 {
     border-bottom: 2px solid black;
     margin: 5px 0;
     padding-bottom: 10px;
 }
 
-.divIdee *:not(p)
+.divEvent *:not(p)
 {
     margin: 0;
 }
 
-.titreIdee
+.titreEvent
 {
     display: flex;
     align-items: baseline;
 }
 
-.contenuIdee
+.contenuEvent
 {
     display: flex;
     align-items: center;
 }
 
-.imgIdee
+.imgEvent
 {
     height: 30vh;
 }
 
-.contenuIdee p
+.contenuEvent p
 {
     margin: 5px;
 }

@@ -3,7 +3,11 @@ session_start();
 
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=projetweb', 'root', '');
 
-if (isset($_GET['id']) AND ($_GET['id'] > 0)) {
+
+
+if (isset($_GET['id']) AND ($_GET['id'] > 0)) 
+{
+    
     $getid = intval($_GET['id']);
     $requser = $bdd->prepare('SELECT * FROM utilisateurs WHERE ID_Utilisateurs = ?');
     $requser->execute(array($getid));
@@ -28,9 +32,18 @@ if (isset($_GET['id']) AND ($_GET['id'] > 0)) {
 		<?php
 			if (isset($_SESSION['id']) AND $userinfo['ID_Utilisateurs'] == $_SESSION['id'])
 			{
-			?>
+				if (isset($_SESSION['etat']) AND $userinfo['Status'] == 0) {
+					
+							?>
                 <a href="">Editer mon profil</a>
 			<?php
+			}
+			elseif (isset($_SESSION['etat']) AND $userinfo['Status'] == 1) {
+							?>
+                <a href="">Editer mon profil</a>
+                <a href="ajoutProduits.php">Ajouter un produit</a>
+			<?php
+			}
 			} ?>
 </section>
 
