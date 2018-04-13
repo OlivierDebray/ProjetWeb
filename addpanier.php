@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 try{
 	$bdd = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
 	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
@@ -26,6 +26,7 @@ if(isset($_SESSION["id"])) {
 					<span class="Quantity"> <?php echo $donnée['Quantite']; ?></span>
 					<a href="supprimerpanier.php?id=<?php echo $donnée['Produit']; ?>"><img class= "corb" src="images/corbeille.jpg" alt"sup"></a>
 				</div>
+			</br>
 		<?php
 	}
 }
