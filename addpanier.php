@@ -20,9 +20,9 @@ if(isset($_SESSION["id"])) {
 	while($donnée = $reqpanier->fetch()){ 
 		?>
 				<div class= "row">
-					<img class="img" src="images/BergerAustralien.jpg" alt="chien" > 
+					<img class="img" src='images/produits/<?php echo $donnée['url']?>'> 
 					<span class= "name"><?php echo $donnée['Nom']?></span>
-					<span class="price"><?php echo $donnée['Prix']?></span>
+					<span class="price"><?php echo $donnée['Prix'] * $donnée['Quantite']?></span>
 					<span class="Quantity"> <?php echo $donnée['Quantite']; ?></span>
 					<a href="supprimerpanier.php?id=<?php echo $donnée['Produit']; ?>"><img class= "corb" src="images/corbeille.jpg" alt"sup"></a>
 				</div>

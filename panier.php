@@ -21,13 +21,15 @@
                     <span class="Quantity"> Quantite</span>
                     <span class="action"> Supprimer</span>
                 </div>
-<p> <?php include('addpanier.php') ?></p>
- 
-        </div>   
- </div> 
+                <p> <?php include('addpanier.php') ?></p>
+                
+            </div>   
+        </div> 
+    </br>
+    <button><a href="ValiderCommande.php"> Valider commande</a></button>
 
-    </section>
+</section>
 </body>
 
-    <?php include('includes/footer.php') ?>
+<?php include('includes/footer.php') ?>
 </html>
