@@ -1,5 +1,5 @@
 <?php
-    require ('../includes/fpdf181/fpdf.php');
+    require('../fpdf/fpdf.php');
 
     $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
     $requete = $bdd->prepare("SELECT nom,prenom FROM utilisateurs INNER JOIN participation on utilisateurs.ID_Utilisateurs = participation.Utilisateur WHERE participation.Evenement = :num");
