@@ -11,11 +11,11 @@
 <?php include('includes/mainNavbar.php') ?>
 
 <section id="corpus">
-    <?php
+    <?php // Si on a spécifié une page particulière à afficher, on l'affiche (telle les mentions légales)
     if (isset($_GET['page'])) {
         include('pages/' . $_GET['page'] . '.php');
     }
-    else {
+    else { // Sinon, on affche la page d'accueil
         include('pages/accueil.php');
     }
     ?>
