@@ -18,24 +18,22 @@ try
     while ($donnes = $getPopular->fetch())
     {
         ?>
-               
-               <div class='product'> 
-                    <div class='name'> <?php echo $donnes['Nom']?></div>
 
-                    <img src='images/produits/<?php echo $donnes['url']?>', class='imgprod' />
-                    
-                    <div class='price'> Prix: <?php echo $donnes['Prix']?></div>
-                    
+        <div class='product'>
+            <div class='name'> <?php echo $donnes['Nom']?></div>
 
-                    
-                    <div class='description'> Description : <?php echo $donnes['Description']?></div>
-                    
-                   <button><a href="AjoutBDDpanier.php?idproduit=<?php echo $donnes['ID_Produits']; ?>"> Ajouter au panier</a></button>
-                </div>
+            <img src='images/produits/<?php echo $donnes['url']?>', class='imgprod' />
+
+            <div class='price'> Prix: <?php echo $donnes['Prix']?></div>
+            <div class='description'> Description : <?php echo $donnes['Description']?></div>
+
+            <button onclick="addToCart(<?php echo $donnes['ID_Produits']; ?>)">Ajouter au panier</button>
+            <label id="label<?php echo $donnes['ID_Produits']; ?>"></label>
+        </div>
 
         <?php
     }
-}       
+}
 
 
 catch(Exception $e){

@@ -5,6 +5,7 @@
 <head>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/panier.css" />
+    <script src="javascript/manageCart.js"></script>
 </head>
 
 <body>
@@ -24,7 +25,6 @@
                     <span class="action"> Supprimer</span>
                 </div>
                 <p> <?php include('addpanier.php') ?></p>
-
             </div>   
         </div> 
     </br>

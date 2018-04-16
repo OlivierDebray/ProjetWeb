@@ -22,29 +22,29 @@ try
 
 
 
-?>
+        ?>
 
-               <div class='product'> 
-                    <div class='name'> <?php echo $donnes['Nom']?></div>
-                    
-                    <img src='images/produits/<?php echo $donnes['url']?>' class='imgprod'/>
-                    
-                    
-                    <div class='price'> Prix : <?php echo $donnes['Prix'] ?></div>
-                    
+        <div class='product'>
+        <div class='name'> <?php echo $donnes['Nom']?></div>
 
-                    <div class='description'> Description : {$donnes['Description']}</div>
+    <img src='images/produits/<?php echo $donnes['url']?>' class='imgprod'/>
 
-                    <button><a href="AjoutBDDpanier.php?id=<?php echo $donnes['ID_Produits']; ?>"> Ajouter au panier</a></button>
-                </div>
 
-          <div class='description'> Description : <?php echo $donnes['Description'] ?></div>
-                    
-                    <a href=''> <button> Ajouter au Panier </button></a>
-                </div>
+    <div class='price'> Prix : <?php echo $donnes['Prix'] ?></div>
 
-<?php
-    }
+
+    <div class='description'> Description : {$donnes['Description']}</div>
+
+    <button onclick="addToCart(<?php echo $donnes['ID_Produits'].",".$_SESSION['id']; ?>)">Ajouter au panier</button>
+    </div>
+
+    <div class='description'> Description : <?php echo $donnes['Description'] ?></div>
+
+    <a href=''> <button> Ajouter au Panier </button></a>
+    </div>
+
+    <?php
+}
 
 
 
