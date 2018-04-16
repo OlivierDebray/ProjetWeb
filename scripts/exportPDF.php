@@ -44,6 +44,7 @@
         }
 
     }
+
     $pdf = new PDF();
     $pdf->AliasNbPages('{pages}');
     $pdf->SetAutoPageBreak(true,15);

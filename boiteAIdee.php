@@ -23,15 +23,7 @@
     else {
         // Si il n'y a pas de page spécifié en GET, on affiche la boite à idée
         if (!isset($_GET['page'])) {
-            $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
-
-//            $req = $bdd->prepare("SELECT Status FROM utilisateurs WHERE ID_Utilisateurs=?");
-//            $req->execute(array($_SESSION['id']));
-//            $status = $req->fetch();
-//            $req->closeCursor();
-//            $status = $status['Status'];
-            $status = $_SESSION['etat'];
-            ?>
+            $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', ''); ?>
 
             <div id="title">
                 <h1>Boite à idées</h1>
@@ -71,7 +63,7 @@
                         $userLikeReq->closeCursor() ?>
                     </div>
                     <?php // Si l'utilisateur est membre du BDE, il peut accéder à la gestion de l'idée
-                    if ($status == 1) { ?>
+                    if ($_SESSION['etat'] == 1) { ?>
                         <button onclick="window.location.assign('?page=submit&id=<?php echo $reponse['ID_Evenements'] ?>')">Gérer cette idée</button>
                     <?php } ?>
                 </div>

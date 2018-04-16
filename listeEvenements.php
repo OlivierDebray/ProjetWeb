@@ -15,8 +15,7 @@
 <?php include('includes/eventNavbar.php') ?>
 
 <section id="corpus">
-    <?php
-    if (!isset($_SESSION['id'])) { ?>
+    <?php if (!isset($_SESSION['id'])) { ?>
         <p>Vous devez être connecté pour voir les événements !</p>
     <?php }
     else {
@@ -29,6 +28,7 @@
             $req->closeCursor();
             $status = $status['Status'];
 
+            $inscriptionOuverte = false;
             $eventReq = "";
 
             switch ($_GET['page']) {
@@ -51,9 +51,26 @@
                         <img class="imgEvent" id="imgIdee<?php echo $reponse['ID_Evenements']?>" src="images/Suggestionbox<?php echo $reponse['Image'] ?>" alt="Image de l'événement" alt="Image de l'idée" onclick="downloadImg(<?php echo $reponse['ID_Evenements']?>)"/>
                         <p><?php echo $reponse['Description'] ?></p>
                     </div>
+                    <?php $participationReq = $bdd->prepare("SELECT COUNT(*) FROM participation WHERE Utilisateur=? AND Evenement=?");
+                    $participationReq->execute(array($_SESSION['id'],$reponse['ID_Evenements']));
+                    $participation = $participationReq->fetch()[0];
+                    $participationReq->closeCursor();
+                    if ($inscriptionOuverte) { ?>
+                        <button id="button<?php echo $reponse['ID_Evenements'] ?>"
+                                onclick="inscription(<?php echo $_SESSION['id'] . "," . $reponse['ID_Evenements'] . "," . $participation ?>)">
+                            <?php if ($participation == 0) { ?>
+                                S'inscrire
+                            <?php } else if ($participation == 1) { ?>
+                                Se désinscrire
+                            <?php } ?>
+                        </button>
+                    <?php }
+                    // Si l'utilisateur est membre du BDE, il peut accéder à la liste des participants
+                    if ($status == 1) { ?>
+                        <button onclick="window.location.assign('scripts/exportPDF.php?listParticipant=<?php echo $reponse['ID_Evenements'] ?>')">Liste des participants</button>
+                    <?php } ?>
                     <div class="userAction">
-                        <?php
-                        $likeReq = $bdd->prepare("SELECT COUNT(*) FROM `action` WHERE Evenement=? AND `Like`=1");
+                        <?php $likeReq = $bdd->prepare("SELECT COUNT(*) FROM `action` WHERE Evenement=? AND `Like`=1");
                         $likeReq->execute(array($reponse['ID_Evenements']));
                         $likes = $likeReq->fetch();
 
@@ -68,28 +85,11 @@
                         $likeReq->closeCursor();
                         $userLikeReq->closeCursor(); ?>
                     </div>
-                    <?php
-                    $participationReq = $bdd->prepare("SELECT COUNT(*) FROM participation WHERE Utilisateur=? AND Evenement=?");
-                    $participationReq->execute(array($_SESSION['id'],$reponse['ID_Evenements']));
-                    $participation = $participationReq->fetch()[0];
-                    $participationReq->closeCursor(); ?>
-                    <button id="button<?php echo $reponse['ID_Evenements'] ?>" onclick="inscription(<?php echo $_SESSION['id'].",".$reponse['ID_Evenements'].",".$participation ?>)">
-                    <?php if ($participation == 0) { ?>
-                        S'inscrire
-                    <?php } else if ($participation == 1) { ?>
-                        Se désinscrire
-                    <?php } ?>
-                    </button>
                 </div>
-                <?php
-
-            }
-            ?>
-
-            <?php
+            <?php }
         }
-    }
-    ?>
+    } ?>
+
 </section>
 
 <?php include('includes/footer.php') ?>
