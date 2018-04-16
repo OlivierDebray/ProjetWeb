@@ -18,22 +18,7 @@ try
     GROUP BY Produit ORDER BY COUNT(Produit) DESC)  ");
 
 
-    while ($response = $query->fetch())
-    {?>
-               <div class='product'> 
-                    <div class='name'> <?php echo $response['Nom']?></div>
-                    
-                    <img src='images/produits/<?php echo $response['url']?>' class='imgprod'/>
-                    
-                    
-                    <div class='price'> Prix : <?php echo $response['Prix'] ?></div>
-                    
-                    <div class='description'> Description :<?php echo $response['Description']?></div>
-                    
-                    <a href=''> <button> Ajouter au Panier </button></a>
-                </div>
-<?php
-    }
+    include ('AfficherProduit.php');
 
 
 }

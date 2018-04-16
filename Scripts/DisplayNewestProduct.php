@@ -9,27 +9,10 @@
 try
 {
     $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root','');
-    $getNewest = $bdd->query("SELECT * FROM Produits");
-
-    $getPopular = $bdd->query("SELECT * FROM `produits` 
-    ORDER BY DateAjout DESC");
+    $query = $bdd->query("SELECT * FROM Produits ORDER BY DateAjout DESC");
 
 
-    while ($donnes = $getPopular->fetch())
-    {?>
-               <div class='product'> 
-                    <div class='name'> <?php echo $donnes['Nom']?></div>
-                    <img src='images/produits/<?php echo $donnes['url']?>', class='imgprod' />
-                    
-                    <div class='price'> Prix: <?php echo $donnes['Prix']?></div>
-                    
-                    <div class='description'> Description: <?php echo$donnes['Description']?></div>
-                    
-                    <a href=''> <button> Ajouter au Panier </button></a>
-                </div>
-
-        <?php
-    }
+    include ('AfficherProduit.php');
 
 }
 catch(Exception $e){
