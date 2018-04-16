@@ -6,6 +6,7 @@
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/listeEvenements.css"/>
     <script src="javascript/likeEvent.js"></script>
+    <script src="javascript/inscription.js"></script>
 </head>
 <body>
 <?php include('includes/header.php') ?>
@@ -34,6 +35,7 @@
                 case "avenir": ?>
                     <h1>Evénements à venir</h1>
                     <?php $eventReq = $bdd->query("SELECT * FROM evenements WHERE Etat = 1");
+                    $inscriptionOuverte = true;
                     break;
                 case "passes": ?>
                     <h1>Evénements passés</h1>
@@ -46,7 +48,7 @@
                     <h4 class="idEvent">Evénement numéro <?php echo $reponse['ID_Evenements']?></h4>
                     <div class='titreEvent'><h3><?php echo $reponse["Nom"] . "&nbsp;" ?></h3>à <?php echo $reponse["Lieu"] ?></div>
                     <div class="contenuEvent">
-                        <img class="imgEvent" src="images/Suggestionbox<?php echo $reponse['Image'] ?>" alt="Image de l'événement" />
+                        <img class="imgEvent" id="imgIdee<?php echo $reponse['ID_Evenements']?>" src="images/Suggestionbox<?php echo $reponse['Image'] ?>" alt="Image de l'événement" alt="Image de l'idée" onclick="downloadImg(<?php echo $reponse['ID_Evenements']?>)"/>
                         <p><?php echo $reponse['Description'] ?></p>
                     </div>
                     <div class="userAction">
@@ -64,10 +66,23 @@
                         echo "alt='Liker' />";
                         echo "<label id='like" . $reponse['ID_Evenements'] . "'>" . $likes['COUNT(*)'] . " like(s)</label>";
                         $likeReq->closeCursor();
-                        $userLikeReq->closeCursor() ?>
+                        $userLikeReq->closeCursor(); ?>
                     </div>
+                    <?php
+                    $participationReq = $bdd->prepare("SELECT COUNT(*) FROM participation WHERE Utilisateur=? AND Evenement=?");
+                    $participationReq->execute(array($_SESSION['id'],$reponse['ID_Evenements']));
+                    $participation = $participationReq->fetch()[0];
+                    $participationReq->closeCursor(); ?>
+                    <button id="button<?php echo $reponse['ID_Evenements'] ?>" onclick="inscription(<?php echo $_SESSION['id'].",".$reponse['ID_Evenements'].",".$participation ?>)">
+                    <?php if ($participation == 0) { ?>
+                        S'inscrire
+                    <?php } else if ($participation == 1) { ?>
+                        Se désinscrire
+                    <?php } ?>
+                    </button>
                 </div>
                 <?php
+
             }
             ?>
 
