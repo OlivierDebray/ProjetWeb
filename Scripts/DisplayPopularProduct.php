@@ -11,24 +11,24 @@ try
 
 
     $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root','');
-    $getNewest = $bdd->query("SELECT * FROM Produits");
 
-    $getPopular = $bdd->query("SELECT * FROM produits 
+
+    $query = $bdd->query("SELECT * FROM produits 
     WHERE ID_Produits IN (SELECT Produit FROM `commande` 
     GROUP BY Produit ORDER BY COUNT(Produit) DESC)  ");
 
 
-    while ($donnes = $getPopular->fetch())
+    while ($response = $query->fetch())
     {?>
                <div class='product'> 
-                    <div class='name'> <?php echo $donnes['Nom']?></div>
+                    <div class='name'> <?php echo $response['Nom']?></div>
                     
-                    <img src='images/produits/<?php echo $donnes['url']?>' class='imgprod'/>
+                    <img src='images/produits/<?php echo $response['url']?>' class='imgprod'/>
                     
                     
-                    <div class='price'> Prix : <?php echo $donnes['Prix'] ?></div>
+                    <div class='price'> Prix : <?php echo $response['Prix'] ?></div>
                     
-                    <div class='description'> Description :<?php echo $donnes['Description']?></div>
+                    <div class='description'> Description :<?php echo $response['Description']?></div>
                     
                     <a href=''> <button> Ajouter au Panier </button></a>
                 </div>
