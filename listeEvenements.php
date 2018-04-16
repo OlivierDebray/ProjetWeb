@@ -5,6 +5,7 @@
 <head>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/listeEvenements.css"/>
+    <script src="javascript/likeEvent.js"></script>
 </head>
 <body>
 <?php include('includes/header.php') ?>
@@ -47,6 +48,23 @@
                     <div class="contenuEvent">
                         <img class="imgEvent" src="images/Suggestionbox<?php echo $reponse['Image'] ?>" alt="Image de l'événement" />
                         <p><?php echo $reponse['Description'] ?></p>
+                    </div>
+                    <div class="userAction">
+                        <?php
+                        $likeReq = $bdd->prepare("SELECT COUNT(*) FROM `action` WHERE Evenement=? AND `Like`=1");
+                        $likeReq->execute(array($reponse['ID_Evenements']));
+                        $likes = $likeReq->fetch();
+
+                        $userLikeReq = $bdd->prepare("SELECT COUNT(*) FROM `action` WHERE Utilisateur=? AND Evenement=? AND `Like`=1");
+                        $userLikeReq->execute(array($_SESSION['id'],$reponse['ID_Evenements']));
+                        $usersLike = $userLikeReq->fetch();
+
+                        echo "<img id='img".$reponse['ID_Evenements']."' src='images/thumb%20up.png' ";
+                        echo "onclick='likeEvent(".$_SESSION['id'].",".$reponse['ID_Evenements'].",".$likes['COUNT(*)'].",".$usersLike['COUNT(*)'].",\"event\")' ";
+                        echo "alt='Liker' />";
+                        echo "<label id='like" . $reponse['ID_Evenements'] . "'>" . $likes['COUNT(*)'] . " like(s)</label>";
+                        $likeReq->closeCursor();
+                        $userLikeReq->closeCursor() ?>
                     </div>
                 </div>
                 <?php
