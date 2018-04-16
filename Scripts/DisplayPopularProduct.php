@@ -6,11 +6,10 @@
  * Time: 15:38
  */
 
-try
-{
+try {
 
 
-    $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root','');
+    $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
     $getNewest = $bdd->query("SELECT * FROM Produits");
 
     $getPopular = $bdd->query("SELECT * FROM produits 
@@ -18,32 +17,36 @@ try
     GROUP BY Produit ORDER BY COUNT(Produit) DESC)  ");
 
 
-    while ($donnes = $getPopular->fetch())
-
+    while ($donnes = $getPopular->fetch()) {
 
 
         ?>
 
         <div class='product'>
-        <div class='name'> <?php echo $donnes['Nom']?></div>
+            <div class='name'> <?php echo $donnes['Nom'] ?></div>
 
-    <img src='images/produits/<?php echo $donnes['url']?>' class='imgprod'/>
-
-
-    <div class='price'> Prix : <?php echo $donnes['Prix'] ?></div>
+            <img src='images/produits/<?php echo $donnes['url'] ?>' class='imgprod'/>
 
 
-    <div class='description'> Description : {$donnes['Description']}</div>
+            <div class='price'> Prix : <?php echo $donnes['Prix'] ?></div>
 
-    <button onclick="addToCart(<?php echo $donnes['ID_Produits'].",".$_SESSION['id']; ?>)">Ajouter au panier</button>
-    </div>
 
-    <div class='description'> Description : <?php echo $donnes['Description'] ?></div>
+            <div class='description'> Description : {$donnes['Description']}</div>
 
-    <a href=''> <button> Ajouter au Panier </button></a>
-    </div>
+            <button onclick="addToCart(<?php echo $donnes['ID_Produits'] . "," . $_SESSION['id']; ?>)">Ajouter au
+                panier
+            </button>
+        </div>
 
-    <?php
+        <div class='description'> Description : <?php echo $donnes['Description'] ?></div>
+
+        <a href=''>
+            <button> Ajouter au Panier</button>
+        </a>
+        </div>
+
+        <?php
+    }
 }
 
 
