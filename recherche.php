@@ -46,6 +46,8 @@
         <select name="cat">
             <option  value="shirt">T-shirts</option>
             <option  value="drapeau">Drapeaux</option>
+            <option value="mug">Mug</option>
+            <option value="goodies">Goodies</option>
         </select>
 
         <input name="nbr" type="number" placeholder="Nombre d'artcles" step="10" min="10" max="50">
