@@ -38,7 +38,7 @@ if(isset($_SESSION["id"])) {
 
     while ($donnée = $reqpersonne->fetch()){
 
-        $message = $client['Nom']." ".$client['Prenom']." a commandé sur le site du BDE. Veuillez lui donner un rendez-vous! ";
+        $message = $client['Nom']." ".$client['Prenom']." a commandé sur le site du BDE. Veuillez le contacter afin de lui donner un rendez-vous à l'adresse mail : $client['Mail'] ";
 
         $bdd->query("INSERT INTO notifications (FK_ID_Utilisateur, Message) VALUES ( ".$donnée['ID_Utilisateurs'].",'".addslashes($message)."')");
 
