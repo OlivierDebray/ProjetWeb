@@ -19,9 +19,7 @@
 
     <?php
 
-
     if (!isset($_GET['page'])) {
-
         ?>
         <h1>Bienvenue sur les catégories de la boutique</h1>
         <table>
@@ -55,20 +53,23 @@
             </tr>
         </table>
         <?php
+    }
 
-    }elseif($_GET['page'] === 't-shirts'){
+    elseif($_GET['page'] === 't-shirts')
+    {
     ?>
-    <h1>Boutique de t-shirts</h1>
-    <section id="corpus" class="products">
+        <h1>Boutique de t-shirts</h1>
+            <section id="corpus" class="products">
 
     <?php
+
        $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
        $shirtReq = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'shirt'");
        $shirtReq->execute();
 
     while ($reponse = $shirtReq->fetch())
-    { ?>
-
+    {
+        ?>
             <div class="product">
                 <div class='name'> <?php echo $reponse['Nom']?></div>
 
@@ -77,33 +78,111 @@
 
                 <div class='price'>Prix : <?php echo $reponse['Prix']?></div>
 
-                <div class='description'> Description : <?php echo $reponse['Description']?></div>
-    </div>
+                <div class='description'> Description :<?php echo $reponse['Description']?></div>
+                <a href=''> <button> Ajouter au Panier </button></a>
+        </div>
 
-
-
-   <?php
-    } ?>
-
-    </section>
-
-
-    <?php }elseif($_GET['page'] === 'drapeaux') {
-     ?>
-    <h1> Les Drapeaux !</h1>
-    <?php
-
-    }elseif($_GET['page'] === 'goodies'){
-
-    ?>
-    <h1> Les Goodies !</h1>
-
-    <?php
-    }elseif($_GET['page'] === 'mug') {
-        ?>
-        <h1> Les Mug !</h1>
 
         <?php
+    }
+
+    ?>
+            </section>
+    <?php
+    }
+    elseif($_GET['page'] === 'drapeaux')
+    {
+    ?>
+        <h1> Les Drapeaux !</h1>
+            <section id="corpus" class="products">
+
+    <?php
+
+        $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
+        $flagReq = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'drapeau'");
+        $flagReq->execute();
+
+    while ($reponse = $flagReq->fetch())
+    {
+     ?>
+        <div class="product">
+            <div class='name'> <?php echo $reponse['Nom'] ?></div>
+            <img src='images/produits/<?php echo $reponse['url'] ?>' , class='imgprod'/>
+            <div class='price'>Prix : <?php echo $reponse['Prix'] ?></div>
+            <div class='description'> Description :<?php echo $reponse['Description'] ?></div>
+            <a href=''><button> Ajouter au Panier</button></a>
+        </div>
+
+        <?php
+    }
+        ?>
+            </section>
+    <?php
+
+    }
+    elseif($_GET['page'] === 'goodies')
+    {
+        ?>
+        <h1> Les Goodies !</h1>
+        <section id="corpus" class="products">
+
+            <?php
+
+            $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
+            $goodReq = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'goodies'");
+            $goodReq->execute();
+
+
+            while ($reponse = $goodReq->fetch())
+            {
+                ?>
+
+                <div class="product">
+                    <div class='name'> <?php echo $reponse['Nom'] ?></div>
+                    <img src='images/produits/<?php echo $reponse['url'] ?>' , class='imgprod'/>
+                    <div class='price'>Prix : <?php echo $reponse['Prix'] ?></div>
+                    <div class='description'> Description :<?php echo $reponse['Description'] ?></div>
+                    <a href=''>
+                        <button> Ajouter au Panier</button>
+                    </a>
+
+                </div>
+
+                <?php
+            }
+            ?>
+        </section>
+        <?php
+    }
+    elseif($_GET['page'] === 'mug') {
+    ?>
+        <h1> Les Mug !</h1>
+            <section id="corpus" class="products">
+
+        <?php
+        $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
+        $mugReq = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'mug'");
+        $mugReq->execute();
+
+        while ($reponse = $mugReq->fetch()){
+            ?>
+
+                <div class="product">
+                    <div class='name'> <?php echo $reponse['Nom'] ?></div>
+                    <img src='images/produits/<?php echo $reponse['url'] ?>' , class='imgprod'/>
+                    <div class='price'>Prix : <?php echo $reponse['Prix'] ?></div>
+                    <div class='description'> Description :<?php echo $reponse['Description'] ?></div>
+                    <a href=''>
+                        <button> Ajouter au Panier</button>
+                    </a>
+
+                </div>
+                <?php
+        }
+        ?>
+            </section>
+    <?php
+
     }
     ?>
 </section>
@@ -111,4 +190,6 @@
 <?php include('includes/footer.php') ?>
 
 </body>
+
+
 </html>
