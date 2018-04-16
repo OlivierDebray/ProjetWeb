@@ -24,19 +24,20 @@ if (empty($delete)) {
     } else if (isset($_GET['img'])) {
         $new_img_name = $_GET['img'];
     } else {
-        $new_img_name = "/activity.png";
+        $new_img_name = "activity.png";
     }
 
     if (!isset($_GET['id'])) {
         // Requête préparée pour empêcher les injections SQL
-        $requete = $bdd->prepare("INSERT INTO evenements (Nom, Description, Lieu, Image, Etat) VALUES( :event, :description, :location, :image, :etat)");
+        $requete = $bdd->prepare("INSERT INTO evenements (Nom, UtilisateurCreateur, Description, Lieu, Image, Etat) VALUES( :event, :userCreator, :description, :location, :image, 0)");
         $requete->bindValue(':event', $event, PDO::PARAM_STR);
+        $requete->bindValue(':userCreator', $_GET['idUser'], PDO::PARAM_STR);
         $requete->bindValue(':description', $description, PDO::PARAM_STR);
         $requete->bindValue(':location', $location, PDO::PARAM_STR);
         $requete->bindValue(':image', '/'.$new_img_name, PDO::PARAM_STR);
-        $requete->bindValue(':etat', "0", PDO::PARAM_STR);
         $requete->execute();
         $requete->closeCursor();
+
     }
     else {
         $bdd->query("DELETE FROM vote WHERE Evenement=".$_GET['id']);
