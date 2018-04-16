@@ -13,7 +13,8 @@
     <?php include ('includes/shopNavbar.php') ?>
     <section id="corpus">
         <h1>Veuillez choisir votre mode de paiment</h1>
-
+<button><a href="DemandeRDV.php"> Demander un rendez-vous</a></button>    
+<button><a href="Paypal.php"> Paypal</a></button>    
 
 </section>
 </body>
