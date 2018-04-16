@@ -32,6 +32,7 @@ if(isset($_SESSION["id"])) {
     $id= $_SESSION["id"];
 
     $client = $bdd->query("SELECT * FROM utilisateurs WHERE ID_Utilisateurs=".$id)->fetch();
+    $commande = $bdd->query("SELECT * FROM panier WHERE Utilisateur = '$id'")->fetch();
 
     $reqpersonne= $bdd->prepare("SELECT * FROM utilisateurs WHERE Status = '1'");
     $reqpersonne->execute();
@@ -41,6 +42,10 @@ if(isset($_SESSION["id"])) {
         $message = $client['Nom']." ".$client['Prenom']." a commandé sur le site du BDE. Veuillez le contacter afin de lui donner un rendez-vous à l'adresse mail: " .$client['Mail'];
 
         $bdd->query("INSERT INTO notifications (FK_ID_Utilisateur, Message) VALUES ( ".$donnée['ID_Utilisateurs'].",'".addslashes($message)."')");
+
+        $bdd->query("INSERT INTO commande (Utilisateur, Produit, Date, Quantité) VALUES (".$id.",'".$commande['Produit']."',now(),".$commande['Quantite'].")");
+
+        $bdd->query("DELETE FROM panier WHERE Utilisateur = '$id'");
 
     }
 
