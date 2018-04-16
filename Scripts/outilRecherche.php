@@ -8,25 +8,24 @@
 
         $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root','');
 
-        $getName = $_GET['q'];
-        $getPrix = $_GET['prix'];
+        //$getName = $_GET['q'];
+        //$getPrix = $_GET['prix'];
 
 
-        if (isset($getName) && !empty($getName )){
+        if (isset($_GET['q']) AND !empty($_GET['q']) AND !isset($_GET['prix']) AND empty($_GET['prix'])){
 
-            $q = htmlspecialchars($getName);
+            $q = htmlspecialchars($_GET['q']);
 
             $query = $bdd->query('SELECT * FROM produits
         WHERE Nom LIKE "%'.$q.'%" ');
 
-
             include ('AfficherProduit.php');
 
         }
-        else if (isset($getName) && !empty($getName) && isset($getPrix) && !empty($getPrix )){
+        else if (isset($_GET['q']) AND !empty($_GET['q']) AND isset($_GET['prix']) AND !empty($_GET['prix'])){
 
-            $q = htmlspecialchars($getName);
-            $prix = htmlspecialchars($getPrix);
+            $q = htmlspecialchars($_GET['q']);
+            $prix = htmlspecialchars($_GET['prix']);
 
             $query = $bdd->query('SELECT * FROM produits WHERE Nom LIKE "%'.$q.'%" ORDER BY Prix '.$prix.' ');
 

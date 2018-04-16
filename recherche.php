@@ -37,7 +37,7 @@
 
 
 
-        <input type="radio" id="critere1" name="prix" value="ACS">
+        <input type="radio" id="critere1" name="prix" value="ASC">
             <label for="critere1">Prix croissant</label>
 
         <input type="radio" id="critere2" name="prix" value="DESC">
