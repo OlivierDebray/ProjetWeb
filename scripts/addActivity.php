@@ -1,6 +1,9 @@
 <?php
+// Script PHP permettant d'ajouter et de gérer les idées
+
 $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
 
+// Paramètres envoyés en GET à la fonction : l'ID de l'idée, sa description, 
 $event = $_POST['event'];
 $description = $_POST['description'];
 $location = $_POST['location'];
