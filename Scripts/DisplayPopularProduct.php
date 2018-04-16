@@ -38,7 +38,7 @@ try
                     <button><a href="AjoutBDDpanier.php?id=<?php echo $donnes['ID_Produits']; ?>"> Ajouter au panier</a></button>
                 </div>
 
-          <div class='description'> Description :<?php echo $donnes['Description']?></div>
+          <div class='description'> Description : <?php echo $donnes['Description'] ?></div>
                     
                     <a href=''> <button> Ajouter au Panier </button></a>
                 </div>
@@ -47,8 +47,9 @@ try
     }
 
 
-}
+
 catch(Exception $e){
     echo " Exception : " .$e->getMessage(). "\n";
-}?>
+}
+?>
 
