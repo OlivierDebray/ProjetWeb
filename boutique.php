@@ -20,7 +20,7 @@
 
     <section id="corpus">
         <h2> Les nouveautés !</h2>
-        <div class="products"> <?php include('scripts/DisplayNewProducts.php') ?></div>
+        <div class="products"> <?php include('scripts/DisplayNewestProduct.php') ?></div>
     </section>
 
     <?php include('includes/footer.php') ?>
