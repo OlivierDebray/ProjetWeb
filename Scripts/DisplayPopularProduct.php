@@ -19,12 +19,11 @@ try
 
 
     while ($donnes = $getPopular->fetch())
-<<<<<<< HEAD
-    {
-    ?>
-=======
-    {?>
->>>>>>> shop
+
+
+
+?>
+
                <div class='product'> 
                     <div class='name'> <?php echo $donnes['Nom']?></div>
                     
@@ -33,18 +32,17 @@ try
                     
                     <div class='price'> Prix : <?php echo $donnes['Prix'] ?></div>
                     
-<<<<<<< HEAD
+
                     <div class='description'> Description : {$donnes['Description']}</div>
 
                     <button><a href="AjoutBDDpanier.php?id=<?php echo $donnes['ID_Produits']; ?>"> Ajouter au panier</a></button>
                 </div>
 
-=======
-                    <div class='description'> Description :<?php echo $donnes['Description']?></div>
+          <div class='description'> Description :<?php echo $donnes['Description']?></div>
                     
                     <a href=''> <button> Ajouter au Panier </button></a>
                 </div>
->>>>>>> shop
+
 <?php
     }
 
