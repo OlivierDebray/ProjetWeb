@@ -31,18 +31,11 @@ try {
             <div class='price'> Prix : <?php echo $donnes['Prix'] ?></div>
 
 
-            <div class='description'> Description : {$donnes['Description']}</div>
+            <div class='description'> Description : <?php echo $donnes['Description']?></div>
 
             <button onclick="addToCart(<?php echo $donnes['ID_Produits'] . "," . $_SESSION['id']; ?>)">Ajouter au
                 panier
             </button>
-        </div>
-
-        <div class='description'> Description : <?php echo $donnes['Description'] ?></div>
-
-        <a href=''>
-            <button> Ajouter au Panier</button>
-        </a>
         </div>
 
         <?php
