@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/evenements.css"/>
 </head>
 <body>
+
 <?php include('includes/header.php') ?>
 
 <?php include('includes/mainNavbar.php') ?>
@@ -33,16 +34,14 @@
             </h2>
             <p>Proposez ou votez pour des idées d'activités</p>
         </div>
-        <?php
-        if (isset($_SESSION['etat']) AND ($_SESSION['etat'] == 1)) { ?>
-            <div class="itemContainer" onclick="window.location.assign('')">
+        <?php if (isset($_SESSION['etat']) AND ($_SESSION['etat'] == 1)) { ?>
+            <div class="itemContainer" onclick="window.location.assign('addEvent.php')">
                 <h2>
                     Ajouter un événement
                 </h2>
                 <p>Ajouter un événement organisé par le BDE</p>
             </div>
-        <?php }
-        ?>
+        <?php } ?>
     </div>
 </section>
 
