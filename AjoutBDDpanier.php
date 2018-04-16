@@ -1,19 +1,19 @@
 <?php
 session_start();
 try{
-	$bdd = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');
+	$bdd = new PDO('mysql:host=localhost;dbname=projetweb', 'root', ''); //On se connecte à notre base de données.
 	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 }
 
 catch(Exception $e){
 
-	die('Erreur:' . $e->getmessage());
+	die('Erreur:' . $e->getmessage());//On renvoi une exception si la connection n'a pas pu être effectué.
 }
 
 
-if(isset($_SESSION["id"])) {
+if(isset($_SESSION["id"])) {//On vérifie que l'utilisateur est bien connecté.
 	$id= $_SESSION["id"];
-	$idP = $_GET['idproduit'];
+	$idP = $_GET['idproduit']; //On récupère l'ID du produit dans l'URL.
 	
 
 	$reqpanier= $bdd->prepare("SELECT * FROM panier WHERE Utilisateur = '$id' AND Produit = '$idP'");
