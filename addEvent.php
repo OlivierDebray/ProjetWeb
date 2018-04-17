@@ -31,18 +31,22 @@
             <label for="date">Date :</label>
             <input type="date" name="date" id="date" required/>
 
-            <input type="radio" id="dateChoice1" name="dateChoice" value="ponctuelle">
-            <label for="dateChoice1">Ponctuelle</label>
+            <span>
+                <input type="radio" id="dateChoice1" name="dateChoice" value="ponctuelle">
+                <label for="dateChoice1">Ponctuelle</label>
 
-            <input type="radio" id="dateChoice2" name="dateChoice" value="recurrente">
-            <label for="dateChoice2">Récurrente</label>
+                <input type="radio" id="dateChoice2" name="dateChoice" value="recurrente">
+                <label for="dateChoice2">Récurrente</label>
+            </span>
         </p>
         <p>
-            <input type="radio" id="prixChoice1" name="prixChoice" value="gratuite" onclick="document.getElementById('prixSelector').style.visibility = 'hidden'">
-            <label for="prixChoice1">Gratuite</label>
+            <span>
+                <input type="radio" id="prixChoice1" name="prixChoice" value="gratuite" onclick="document.getElementById('prixSelector').style.visibility = 'hidden'">
+                <label for="prixChoice1">Gratuite</label>
 
-            <input type="radio" id="prixChoice2" name="prixChoice" value="payante" onclick="document.getElementById('prixSelector').style.visibility = 'visible'">
-            <label for="prixChoice2">Payante</label>
+                <input type="radio" id="prixChoice2" name="prixChoice" value="payante" onclick="document.getElementById('prixSelector').style.visibility = 'visible'">
+                <label for="prixChoice2">Payante</label>
+            </span>
 
             <span id="prixSelector" style="visibility: hidden"><input type="number" step="0.01" min="0" placeholder="Prix">€</span>
         </p>
