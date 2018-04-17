@@ -10,7 +10,7 @@ try
 {
     $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root','');
     $query = $bdd->query("SELECT * FROM Produits ORDER BY DateAjout DESC");
-    
+
 
     include ('AfficherProduit.php');
 
