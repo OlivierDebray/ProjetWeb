@@ -24,8 +24,8 @@ $payer->setSecret("Votre Secret");
 $payment_data = [
    "intent" => "sale",
    "redirect_urls" => [
-      "return_url" => "http://localhost/",
-      "cancel_url" => "http://localhost/"
+      "return_url" => "localhost/ProjetWeb",
+      "cancel_url" => "localhost/ProjetWeb"
    ],
    "payer" => [
       "payment_method" => "paypal"
