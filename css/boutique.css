@@ -5,8 +5,6 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: space-around;
-
-
 }
 
 
@@ -20,6 +18,16 @@
     font-size:25px;
     text-align: left;
     border-radius: 25% 10%;;
+
+}
+.product a{
+   color: white;
+    text-decoration: none;
+
+}
+.product a:hover{
+    color: #cbcbcb;
+    text-decoration: none;
 
 }
 

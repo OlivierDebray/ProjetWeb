@@ -9,8 +9,9 @@
 while ($reponse = $query->fetch())
 {?>
     <div class='product'>
-        <div class='name' href="pageProduit.php?val=<?php echo $reponse['ID_Produits'] ?>"> <?php echo $reponse['Nom']?></div>
-        <img src='images/produits/<?php echo $reponse['url']?>', class='imgprod' />
+        <a href="pageProduit.php?produit=<?php echo $reponse['ID_Produits'] ?>"> <div class='name'> <?php echo $reponse['Nom']?></div>
+        <img src='images/produits/<?php echo $reponse['url']?>' class='imgprod' alt="image" />
+        </a>
 
         <div class='price'> Prix: <?php echo $reponse['Prix']?></div>
 

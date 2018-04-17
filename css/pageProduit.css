@@ -1,0 +1,68 @@
+#corpus{
+    overflow: auto;
+}
+.product {
+
+    display: inline;
+    font-size: 30px;
+}
+
+.product img
+{
+    float: left;
+    margin: 30px;
+    border: 3px solid #ffffff;
+    max-width: 400px;
+    max-height: 350px;
+    height: auto;
+    border-radius: 30px;
+
+}
+
+.product button
+{
+    background-color: #ff312a;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+.product button:hover
+{
+    background-color: #c02621;
+}
+
+.name{
+    text-align: center;
+    font-weight: bold;
+    font-size: 70px;
+    margin-bottom: 50px;
+}
+
+.price{
+    text-align: left;
+    margin-left: 450px;
+    margin-bottom: 5px;
+}
+
+.categorie{
+    text-align: left;
+    margin-left: 450px;
+    margin-bottom: 5px;
+}
+
+.stock{
+    text-align: left;
+    margin-left: 450px;
+    margin-bottom: 5px;
+}
+
+.description{
+    text-align: left;
+    margin-left: 450px;
+    margin-bottom: 5px;
+}
