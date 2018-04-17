@@ -64,27 +64,10 @@
     <?php
 
        $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
-       $shirtReq = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'shirt'");
-       $shirtReq->execute();
+       $query = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'shirt'");
+       $query->execute();
 
-    while ($reponse = $shirtReq->fetch())
-    {
-        ?>
-            <div class="product">
-                <div class='name'> <?php echo $reponse['Nom']?></div>
-
-                <img src='images/produits/<?php echo $reponse['url']?>', class='imgprod' />
-
-
-                <div class='price'>Prix : <?php echo $reponse['Prix']?></div>
-
-                <div class='description'> Description :<?php echo $reponse['Description']?></div>
-                <a href=''> <button> Ajouter au Panier </button></a>
-        </div>
-
-
-        <?php
-    }
+    include ('Scripts/AfficherProduit.php');
 
     ?>
             </section>
@@ -99,23 +82,12 @@
     <?php
 
         $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
-        $flagReq = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'drapeau'");
-        $flagReq->execute();
+        $query = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'drapeau'");
+        $query->execute();
 
-    while ($reponse = $flagReq->fetch())
-    {
-     ?>
-        <div class="product">
-            <div class='name'> <?php echo $reponse['Nom'] ?></div>
-            <img src='images/produits/<?php echo $reponse['url'] ?>' , class='imgprod'/>
-            <div class='price'>Prix : <?php echo $reponse['Prix'] ?></div>
-            <div class='description'> Description :<?php echo $reponse['Description'] ?></div>
-            <a href=''><button> Ajouter au Panier</button></a>
-        </div>
+        include ('Scripts/AfficherProduit.php');
 
-        <?php
-    }
-        ?>
+      ?>
             </section>
     <?php
 
@@ -129,27 +101,12 @@
             <?php
 
             $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
-            $goodReq = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'goodies'");
-            $goodReq->execute();
+            $query = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'goodies'");
+            $query->execute();
 
 
-            while ($reponse = $goodReq->fetch())
-            {
-                ?>
+            include ('Scripts/AfficherProduit.php');
 
-                <div class="product">
-                    <div class='name'> <?php echo $reponse['Nom'] ?></div>
-                    <img src='images/produits/<?php echo $reponse['url'] ?>' , class='imgprod'/>
-                    <div class='price'>Prix : <?php echo $reponse['Prix'] ?></div>
-                    <div class='description'> Description :<?php echo $reponse['Description'] ?></div>
-                    <a href=''>
-                        <button> Ajouter au Panier</button>
-                    </a>
-
-                </div>
-
-                <?php
-            }
             ?>
         </section>
         <?php
@@ -161,24 +118,11 @@
 
         <?php
         $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
-        $mugReq = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'mug'");
-        $mugReq->execute();
+        $query = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'mug'");
+        $query->execute();
 
-        while ($reponse = $mugReq->fetch()){
-            ?>
+        include ('Scripts/AfficherProduit.php');
 
-                <div class="product">
-                    <div class='name'> <?php echo $reponse['Nom'] ?></div>
-                    <img src='images/produits/<?php echo $reponse['url'] ?>' , class='imgprod'/>
-                    <div class='price'>Prix : <?php echo $reponse['Prix'] ?></div>
-                    <div class='description'> Description :<?php echo $reponse['Description'] ?></div>
-                    <a href=''>
-                        <button> Ajouter au Panier</button>
-                    </a>
-
-                </div>
-                <?php
-        }
         ?>
             </section>
     <?php

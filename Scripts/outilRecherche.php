@@ -8,11 +8,10 @@
 
         $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root','');
 
-        //$getName = $_GET['q'];
-        //$getPrix = $_GET['prix'];
 
 
-        if (isset($_GET['q']) AND !empty($_GET['q']) AND !isset($_GET['prix']) AND empty($_GET['prix'])){
+        if (isset($_GET['q']) AND !empty($_GET['q']) AND !isset($_GET['prix']) AND empty($_GET['prix']))
+        {
 
             $q = htmlspecialchars($_GET['q']);
 
@@ -32,4 +31,6 @@
             include ('AfficherProduit.php');
 
         }
-
+        else{ ?>
+            <p>Veuillez Inscrire le nom du produit recherché</p>
+<?php }
