@@ -2,7 +2,7 @@
 
 if (isset($_POST['formAddEvent'])) {
 
-    $bdd = new PDO('mysql:host=127.0.0.1;dbname=projetweb', 'root', '');
+    $bdd = new PDO('mysql:host=127.0.0.1;dbname=projetweb;charset=utf8', 'root', '');
 
     $event = $_POST['event'];
     $location = $_POST['location'];
@@ -25,9 +25,9 @@ if (isset($_POST['formAddEvent'])) {
         $extension = explode('.', $image['name']);
         $image_extension = strtolower(end($extension));
         $allowed = array('jpg', 'jpeg', 'png', 'gif', 'pdf');
-        $date = getdate();
-        $new_img_name = $date['mday'].$date['mon'].$date['year'].'_'.$date['hours'].$date['minutes'].$date['seconds'].'.'.$image_extension;
-        $target = "../images/Suggestionbox/".$new_img_name;
+        $dateNow = getdate();
+        $new_img_name = $dateNow['mday'].$dateNow['mon'].$dateNow['year'].'_'.$dateNow['hours'].$dateNow['minutes'].$dateNow['seconds'].'.'.$image_extension;
+        $target = "images/Suggestionbox/".$new_img_name;
 
         if(in_array($image_extension, $allowed)){
             move_uploaded_file($tmpname,$target);
