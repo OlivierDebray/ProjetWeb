@@ -16,7 +16,7 @@ while ($reponse = $query->fetch())
 
         <div class='description'> Description: <?php echo$reponse['Description']?></div>
 
-        <button onclick="addToCart(<?php echo $reponse['ID_Produits'] . "," . $_SESSION['id']; ?>)">Ajouter au
+        <button onclick="addToCart(<?php echo $reponse['ID_Produits']; ?>)">Ajouter au
             panier
         </button>
     </div>
