@@ -6,11 +6,10 @@
  * Time: 15:38
  */
 
-try
-{
+try {
 
 
-    $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root','');
+    $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
 
 
     $query = $bdd->query("SELECT * FROM produits 
@@ -20,9 +19,12 @@ try
 
     include ('AfficherProduit.php');
 
-
 }
+
+
+
 catch(Exception $e){
     echo " Exception : " .$e->getMessage(). "\n";
-}?>
+}
+?>
 

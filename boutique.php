@@ -3,12 +3,13 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
+<head>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
-    </head>
+    <script src="javascript/manageCart.js"></script>
+</head>
 <body>
-    <?php include ('includes/header.php')?>
+    <?php include ('includes/header.php') ?>
     <?php include('includes/mainNavbar.php') ?>
     <?php include ('includes/shopNavbar.php') ?>
     <h1 id="corpus">Bienvenue sur la Boutique du BDE !</h1>

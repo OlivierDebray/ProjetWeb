@@ -14,7 +14,10 @@ try
 
     include ('AfficherProduit.php');
 
+
 }
+
+
 catch(Exception $e){
     echo " Exception : " .$e->getMessage(). "\n";
 }?>
