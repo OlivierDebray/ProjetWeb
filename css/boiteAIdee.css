@@ -77,4 +77,9 @@ form textarea
         flex-wrap: wrap;
         justify-content: center;
     }
+
+    form p *
+    {
+        display: flex;
+    }
 }

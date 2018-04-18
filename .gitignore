@@ -9,3 +9,6 @@
 =======
 
 >>>>>>> origin/shop
+includes/head.php
+Scripts/DisplayNewestProduct.php
+Scripts/DisplayPopularProduct.php

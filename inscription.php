@@ -88,6 +88,7 @@ if(isset($_POST['forminscription']))
 <head>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/inscription&connexion.css" />
+    <script src="javascript/validation/inscription.js" ></script>
 </head>
 <body>
 <?php include('includes/header.php') ?>
@@ -105,7 +106,7 @@ if(isset($_POST['forminscription']))
                         <label for="nom">Nom :</label>
                     </td>
                     <td>
-                        <input class="champ" type="text" placeholder="Votre nom" id="nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>"/>
+                        <input class="champ" type="text" placeholder="Votre nom" id="nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>" onblur="verifLength(this,25)"/>
                     </td>
                 </tr>
 
@@ -114,7 +115,7 @@ if(isset($_POST['forminscription']))
                         <label for="prenom">Prénom :</label>
                     </td>
                     <td>
-                        <input class="champ" type="text" placeholder="Votre prénom" id="prenom" name="prenom" value="<?php if(isset($prenom)) { echo $prenom; } ?>"/>
+                        <input class="champ" type="text" placeholder="Votre prénom" id="prenom" name="prenom" value="<?php if(isset($prenom)) { echo $prenom; } ?>" onblur="verifLength(this,25)"/>
                     </td>
                 </tr>
 
@@ -123,7 +124,7 @@ if(isset($_POST['forminscription']))
                         <label for="mail">Mail :</label>
                     </td>
                     <td>
-                        <input class="champ" type="email" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>"/>
+                        <input class="champ" type="email" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" onblur="verifMail(this,document.getElementById('mail2'))"/>
                     </td>
                 </tr>
 
@@ -132,7 +133,7 @@ if(isset($_POST['forminscription']))
                         <label for="mail2">Confirmation du mail :</label>
                     </td>
                     <td>
-                        <input class="champ" type="email" placeholder="Confirmez votre mail" id="mail2" name="mail2" value="<?php if(isset($mail2)) { echo $mail2; } ?>"/>
+                        <input class="champ" type="email" placeholder="Confirmez votre mail" id="mail2" name="mail2" value="<?php if(isset($mail2)) { echo $mail2; } ?>" onblur="verifMail(this,document.getElementById('mail'))"/>
                     </td>
                 </tr>
 
@@ -161,6 +162,9 @@ if(isset($_POST['forminscription']))
                 </tr>
 
             </table>
+
+            <p id="paraErreur">
+            </p>
 
             <?php
             if (isset($erreur))
