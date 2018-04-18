@@ -65,6 +65,9 @@
                     <?php // Si l'utilisateur est membre du BDE, il peut accéder à la gestion de l'idée
                     if ($_SESSION['etat'] == 1) { ?>
                         <button onclick="window.location.assign('?page=submit&id=<?php echo $reponse['ID_Evenements'] ?>')">Gérer cette idée</button>
+                    <?php }
+                    else if ($_SESSION['etat'] == 2) { ?>
+                        <button onclick="">Supprimer cette idée et notifier le BDE</button>
                     <?php } ?>
                 </div>
                 <?php
