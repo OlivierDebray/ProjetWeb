@@ -19,7 +19,7 @@
         <p>Vous devez être connecté pour voir les événements !</p>
     <?php }
     else {
-        if (isset($_GET['page'])) {
+        if (isset($_GET['page']) AND ($_GET['page'] == "avenir" OR $_GET['page'] == "passes")) {
             $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
 
             $req = $bdd->prepare("SELECT Status FROM utilisateurs WHERE ID_Utilisateurs=?");
@@ -31,17 +31,25 @@
             $inscriptionOuverte = false;
             $eventReq = "";
 
+            $date = getdate();
+
             switch ($_GET['page']) {
                 case "avenir": ?>
                     <h1>Evénements à venir</h1>
-                    <?php $eventReq = $bdd->query("SELECT * FROM evenements WHERE Etat = 1");
+                    <?php
+                    $whereClause = "WHERE Date>'".date("Y-m-d")."'";
+                    //$eventReq = $bdd->query("SELECT * FROM evenements WHERE Date>'".date("Y-m-d")."'");
                     $inscriptionOuverte = true;
                     break;
                 case "passes": ?>
                     <h1>Evénements passés</h1>
-                    <?php $eventReq = $bdd->query("SELECT * FROM evenements WHERE Etat = 2");
+                    <?php
+                    $whereClause = "WHERE Date<='".date("Y-m-d")."'";
+                    //$eventReq = $bdd->query("SELECT * FROM evenements WHERE Date<='".date("Y-m-d")."'");
                     break;
             }
+
+            $eventReq = $bdd->query("SELECT * FROM evenements ".$whereClause);
 
             while ($reponse = $eventReq->fetch()) { ?>
                 <div class='divEvent'>
