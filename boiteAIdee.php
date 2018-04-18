@@ -101,7 +101,7 @@
                     <label for="event">
                         Titre :
                     </label>
-                    <input type="text" name="event" id="event" placeholder="Ex: Laser Game" <?php if ($boolID) { echo "value='".$idee['Nom']."'"; } ?>/>
+                    <input type="text" name="event" id="event" placeholder="Ex: Laser Game" <?php if ($boolID) { echo "value='".$idee['Nom']."'"; } ?> required/>
                     &nbsp;
                     <label for="location">
                         Lieu :
@@ -122,7 +122,7 @@
                         Description (255 caractères maximum) :
                     </label>
                     <br/>
-                    <textarea name="description" id="description" maxlength="255"><?php if ($boolID) { echo $idee['Description']; } ?></textarea>
+                    <textarea name="description" id="description" maxlength="255" required><?php if ($boolID) { echo $idee['Description']; } ?></textarea>
                 </p>
                 <p>
                     Image :

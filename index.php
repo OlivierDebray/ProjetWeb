@@ -15,7 +15,7 @@
     if (isset($_GET['page'])) {
         include('pages/' . $_GET['page'] . '.php');
     }
-    else { // Sinon, on affche la page d'accueil
+    else { // Sinon, on affiche la page d'accueil
         include('pages/accueil.php');
     }
     ?>
