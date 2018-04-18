@@ -6,6 +6,7 @@
 <head>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
     <script src="javascript/jquery-3.3.1.min.js"></script>
     <script src="javascript/jquery-ui.js"></script>
 
@@ -33,9 +34,6 @@
 
         <label for="nom">Tapez le nom d'un produit</label>
         <input id="recherche" type="search" name="q" placeholder="Recherche"/>
-        <div id="suggestions"></div>
-
-
 
         <input type="radio" id="critere1" name="prix" value="ASC">
             <label for="critere1">Prix croissant</label>
