@@ -34,11 +34,9 @@
             </div>   
         </div> 
     </br>
+    <?php }?>
 
-        <button onclick="window.location.assign('ValiderCommande.php')">Valider commande</button>
-            
-<?php }?>
-
+    <button onclick="window.location.assign('ValiderCommande.php')">Valider votre commande</button>
 </section>
 </body>
 
