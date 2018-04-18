@@ -5,7 +5,6 @@
 <html>
 <head>
     <?php include('includes/head.php') ?>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/pageProduit.css"/>
 
 </head>
@@ -30,21 +29,26 @@
         {?>
             <div class='product'>
 
-                <img src='images/produits/<?php echo $reponse['url']?>' class='imgprod' alt="image" />
 
-                <div class='name'> <?php echo $reponse['Nom']?></div>
+                <div class="left-column">
+                    <img src='images/produits/<?php echo $reponse['url']?>' class='imgprod' alt="image" />
+                </div>
 
-                <div class='price'> Prix: <?php echo $reponse['Prix']?>$</div>
+                <div class='right-column'>
+                    <span> Catégorie : <?php echo $reponse['Categorie'];?></span>
+                    <h1><?php echo $reponse['Nom']?></h1>
+                    <p>Description : <?php echo$reponse['Description']?></p>
+                </div>
 
-                <div class="categorie"> Catégorie : <?php echo $reponse['Categorie'];?></div>
 
-                <div class="stock"> Stock restant: <?php echo $reponse['Stock'];?></div>
+                <div class='price'>
 
-                <div class='description'> Description : <?php echo$reponse['Description']?></div>
+                    <p>Stock restant: <?php echo $reponse['Stock'];?></p>
+                    <span> Prix: <?php echo $reponse['Prix']?>$</span>
 
-                <button onclick="addToCart(<?php echo $reponse['ID_Produits']; ?>)">Ajouter au
-                    panier
-                </button>
+                    <button onclick="addToCart(<?php echo $reponse['ID_Produits']; ?>)">Ajouter au panier </button>
+                </div>
+
             </div>
 
                 <?php }
