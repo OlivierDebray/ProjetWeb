@@ -12,6 +12,7 @@
     <?php include ('includes/header.php') ?>
     <?php include('includes/mainNavbar.php') ?>
     <?php include ('includes/shopNavbar.php') ?>
+
     <section id="corpus">
         <h1>Voici votre panier !</h1>
     <button><a href="AnnulerPanier.php"> Supprimer votre panier</a></button>    

@@ -65,7 +65,7 @@
     </section>
 
     <script>
-       paypal.Button.render({
+        paypal.Button.render({
       env: 'sandbox', // Ou 'production',
       commit: true, // Affiche le bouton  "Payer maintenant"
       style: {
@@ -112,15 +112,14 @@
           }
         });
       },
-      onCancel: function(data, actions) {
+            onCancel: function(data, actions) {
         alert("Paiement annulé : vous avez fermé la fenêtre de paiement.");
       },
-      onError: function(err) {
+            onError: function(err) {
         alert("Paiement annulé : une erreur est survenue. Merci de bien vouloir réessayer ultérieurement.");
       }
     }, '#bouton-paypal');
-</script>
-</script>
+    </script>
 </body>
 
 <?php include('includes/footer.php') ?>
