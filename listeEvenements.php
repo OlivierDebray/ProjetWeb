@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/listeEvenements.css"/>
     <script src="javascript/likeEvent.js"></script>
     <script src="javascript/inscription.js"></script>
+    <script src="javascript/personnelCesi.js"></script>
 </head>
 <body>
 <?php include('includes/header.php') ?>
@@ -94,6 +95,9 @@
                         $likeReq->closeCursor();
                         $userLikeReq->closeCursor(); ?>
                     </div>
+                    <?php if ($_SESSION['etat'] == 2) { ?>
+                        <button onclick="supprimerEvenement(<?php echo "'".$_SESSION['nom']." ".$_SESSION['prenom']."',".$reponse['ID_Evenements'] ?>)">Supprimer cet événement et notifier le BDE</button>
+                    <?php } ?>
                 </div>
             <?php }
         }

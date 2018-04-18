@@ -101,7 +101,7 @@ if(isset($_POST['formajout']))
 <section id="corpus">
     <div id="formulaire">
         <h1>Ajout d'un produit</h1>
-        <form method="POST" action="" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
             <table id="table">
                 <tr>
                     <td class="label">
