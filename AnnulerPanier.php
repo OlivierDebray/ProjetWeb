@@ -13,7 +13,7 @@ catch(Exception $e){
 if(isset($_SESSION["id"])) { // On vérifie que l'utilisateur est bien connecté.
 	$id= $_SESSION["id"];
 
-    $supprimer = $bdd->prepare("DELETE FROM panier"); // On supprime l'ensemble des articles de notre panier.
+    $supprimer = $bdd->prepare("DELETE FROM panier WHERE Utilisateur = '$id'"); // On supprime l'ensemble des articles de notre panier.
     $supprimer-> execute();
 
 header('location: panier.php');// Après l'exécution de notre requête, on revient directement à notre page panier.

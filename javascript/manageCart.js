@@ -9,7 +9,7 @@ function addToCart (idProduit) {
     }
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("txtHint").innerHTML = this.responseText;
+
         }
     };
 
@@ -30,7 +30,7 @@ function removeFromCart (idProduit) {
     }
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("txtHint").innerHTML = this.responseText;
+            
         }
     };
 
