@@ -15,7 +15,7 @@
 
     <section id="corpus">
         <?php if (!isset($_SESSION['id'])) { ?>
-        <p>Vous devez être connecté pour voir les événements !</p>
+        <p>Vous devez être connecté pour voir le panier !</p>
         <?php } else{ ?>
         <h1>Voici votre panier !</h1>
 
@@ -36,7 +36,7 @@
     </br>
 
         <button onclick="window.location.assign('ValiderCommande.php')">Valider commande</button>
-            
+
 <?php }?>
 
 </section>
