@@ -14,6 +14,9 @@
     <?php include ('includes/shopNavbar.php') ?>
 
     <section id="corpus">
+        <?php if (!isset($_SESSION['id'])) { ?>
+        <p>Vous devez être connecté pour voir les événements !</p>
+        <?php } else{ ?>
         <h1>Voici votre panier !</h1>
 
         <button onclick="window.location.assign('AnnulerPanier.php')">Supprimer votre panier</button>
@@ -33,6 +36,8 @@
     </br>
 
         <button onclick="window.location.assign('ValiderCommande.php')">Valider commande</button>
+            
+<?php }?>
 
 </section>
 </body>
