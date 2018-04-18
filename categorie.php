@@ -16,7 +16,7 @@
 <?php include('includes/mainNavbar.php') ?>
 <?php include ('includes/shopNavbar.php')?>
 
-<section id="corpus" >
+<section id="corpus">
 
     <?php
 

@@ -15,7 +15,9 @@
 
     <section id="corpus">
         <h1>Voici votre panier !</h1>
-        <button><a href="AnnulerPanier.php"> Supprimer votre panier</a></button>
+
+        <button onclick="window.location.assign('AnnulerPanier.php')">Supprimer votre panier</button>
+
 <div class="table">
         <div class="wrap">
                 <div class="rowtitle">
@@ -29,7 +31,8 @@
             </div>   
         </div> 
     </br>
-    <button><a href="ValiderCommande.php"> Valider commande</a></button>
+
+        <button onclick="window.location.assign('ValiderCommande.php')">Valider commande</button>
 
 </section>
 </body>
