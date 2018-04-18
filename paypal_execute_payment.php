@@ -1,19 +1,20 @@
-<?php
-session_start();
+<?php session_start();
+
 try{
-   $bdd = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');// On se connecte à notre base de données.
-   $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+	$bdd = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');// On se connecte à notre base de données.
+	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 }
 
 catch(Exception $e){
 
-   die('Erreur:' . $e->getmessage());//On affiche une exception quand la connexion n'a pas été effectué.
+	die('Erreur:' . $e->getmessage());//On affiche une exception quand la connexion n'a pas été effectué.
 }
+
 
 require_once "PayPalPayment.php";
 
 $success = 0;
-$msg = "Une erreur est survenue, merci de bien vouloir réessayer ultérieurement...";
+$msg = "Une erreur est arrivée, merci de bien vouloir réessayer ultérieurement...";
 $paypal_response = [];
 
 if (!empty($_POST['paymentID']) AND !empty($_POST['payerID'])) {
@@ -22,8 +23,8 @@ if (!empty($_POST['paymentID']) AND !empty($_POST['payerID'])) {
 
    $payer = new PayPalPayment();
    $payer->setSandboxMode(1);
-   $payer->setClientID("Votre Client ID");
-   $payer->setSecret("Votre Secret");
+   $payer->setClientID("AbrCTmKvOwIDwlf-Iid7-U4zRw4FnCGAbza68olXGWH7mYtuOvjDFDhZH6hTZHUdSa5Lh99HnY-mbqjl");
+	$payer->setSecret("EOJJi4rq_xPidPd0zmb7b9Rscj8ApD8PxuTL_FROIlUPiUqfLU6f0AdGh9Ym-4gx2tgTJ4Nv0nJWS6i0");
 
    $payment = $bdd->prepare('SELECT * FROM paiements WHERE payment_id = ?');
    $payment->execute(array($paymentID));

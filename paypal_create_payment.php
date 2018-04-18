@@ -1,13 +1,13 @@
-<?php
-session_start();
+<?php session_start();
+
 try{
-   $bdd = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');// On se connecte à notre base de données.
-   $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+	$bdd = new PDO('mysql:host=localhost;dbname=projetweb', 'root', '');// On se connecte à notre base de données.
+	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 }
 
 catch(Exception $e){
 
-   die('Erreur:' . $e->getmessage());//On affiche une exception quand la connexion n'a pas été effectué.
+	die('Erreur:' . $e->getmessage());//On affiche une exception quand la connexion n'a pas été effectué.
 }
 
 require_once "PayPalPayment.php";
@@ -18,14 +18,14 @@ $paypal_response = [];
 
 $payer = new PayPalPayment();
 $payer->setSandboxMode(1);
-$payer->setClientID("Votre Client ID");
-$payer->setSecret("Votre Secret");
+$payer->setClientID("AbrCTmKvOwIDwlf-Iid7-U4zRw4FnCGAbza68olXGWH7mYtuOvjDFDhZH6hTZHUdSa5Lh99HnY-mbqjl");
+$payer->setSecret("EOJJi4rq_xPidPd0zmb7b9Rscj8ApD8PxuTL_FROIlUPiUqfLU6f0AdGh9Ym-4gx2tgTJ4Nv0nJWS6i0");
 
 $payment_data = [
    "intent" => "sale",
    "redirect_urls" => [
-      "return_url" => "localhost/ProjetWeb",
-      "cancel_url" => "localhost/ProjetWeb"
+      "return_url" => "http://localhost/ProjetWeb",
+      "cancel_url" => "http://localhost/ProjetWeb"
    ],
    "payer" => [
       "payment_method" => "paypal"
@@ -56,7 +56,7 @@ $paypal_response = $payer->createPayment($payment_data);
 $paypal_response = json_decode($paypal_response);
 
 if (!empty($paypal_response->id)) {
-   $insert = $bdd->prepare("INSERT INTO paiements (payment_id, payment_status, payment_amount, payment_currency, payment_date, payer_email, payer_paypal_id, payer_first_name, payer_last_name) VALUES (:payment_id, :ayment_status, :ayment_amount, :ayment_currency, NOW(), '', '', '', '')");
+   $insert = $bdd->prepare("INSERT INTO paiements (payment_id, payment_status, payment_amount, payment_currency, payment_date, payer_email) VALUES (:payment_id, :payment_status, :payment_amount, :payment_currency, NOW(), '')");
    
    $insert_ok = $insert->execute(array(
          "payment_id" => $paypal_response->id,
