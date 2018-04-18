@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
     <script src="javascript/jquery-3.3.1.min.js"></script>
     <script src="javascript/jquery-ui.js"></script>
+    <script src="javascript/manageCart.js"></script>
 
     <script>
         $(function() {

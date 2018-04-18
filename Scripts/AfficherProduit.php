@@ -20,6 +20,7 @@ while ($reponse = $query->fetch())
         <button onclick="addToCart(<?php echo $reponse['ID_Produits']; ?>)">Ajouter au
             panier
         </button>
+        <label id="label<?php echo $reponse['ID_Produits']; ?>"></label>
     </div>
     <?php
 }

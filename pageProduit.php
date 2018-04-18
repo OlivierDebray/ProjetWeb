@@ -6,6 +6,7 @@
 <head>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/pageProduit.css"/>
+    <script src="javascript/manageCart.js"></script>
 
 </head>
 
@@ -47,6 +48,7 @@
                     <span> Prix: <?php echo $reponse['Prix']?>$</span>
 
                     <button onclick="addToCart(<?php echo $reponse['ID_Produits']; ?>)">Ajouter au panier </button>
+                    <label id="label<?php echo $reponse['ID_Produits']; ?>"></label>
                 </div>
 
             </div>

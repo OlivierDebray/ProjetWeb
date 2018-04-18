@@ -8,6 +8,7 @@
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/categorie.css"/>
     <<link rel="stylesheet" type="text/css" href="css/boutique.css"/>
+    <script src="javascript/manageCart.js"></script>
 </head>
 <body>
 <?php include('includes/header.php') ?>

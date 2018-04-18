@@ -15,7 +15,7 @@
 
     <section id="corpus">
         <h1>Voici votre panier !</h1>
-    <button><a href="AnnulerPanier.php"> Supprimer votre panier</a></button>    
+        <button><a href="AnnulerPanier.php"> Supprimer votre panier</a></button>
 <div class="table">
         <div class="wrap">
                 <div class="rowtitle">
