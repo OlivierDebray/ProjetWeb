@@ -1,9 +1,12 @@
-<?php session_start();
+<?php // Page et script d'ajout d'un événement par le membre du BDE
+session_start();
 
+// Si le formulaire a été envoyé sur la page
 if (isset($_POST['formAddEvent'])) {
 
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=projetweb;charset=utf8', 'root', '');
 
+    // Les différentes entrées du formulaire
     $event = $_POST['event'];
     $location = $_POST['location'];
     $date = $_POST['date'];
@@ -15,10 +18,12 @@ if (isset($_POST['formAddEvent'])) {
     $recurrence2 = $_POST['recurrence2'];
     $recurrence3 = $_POST['recurrence3'];
 
+    // Si l'événement est gratuit, $prix prend la valeur "gratuite"
     if ($prixChoice == "gratuite") {
         $prix = $prixChoice;
     }
 
+    // On récupère et l'on traite l'image envoyé par le formulaire
     if(!empty($_FILES['image']['name']) AND isset($_FILES['image'])){
         $image = $_FILES['image'];
         $tmpname = $image['tmp_name'];
@@ -36,6 +41,7 @@ if (isset($_POST['formAddEvent'])) {
         $new_img_name = "activity.png";
     }
 
+    // On prépare la requête et l'on assigne la plupart des paramètres
     $requete = $bdd->prepare("INSERT INTO evenements (Nom, UtilisateurCreateur, Description, Date, Lieu, Image, Etat, Payant) VALUES( :event, :userCreator, :description, :date, :location, :image, 1, :prix)");
     $requete->bindValue(':event', $event, PDO::PARAM_STR);
     $requete->bindValue(':userCreator', $_SESSION['id'], PDO::PARAM_STR);
@@ -44,20 +50,25 @@ if (isset($_POST['formAddEvent'])) {
     $requete->bindValue(':image', '/'.$new_img_name, PDO::PARAM_STR);
     $requete->bindValue(':prix', $prix, PDO::PARAM_STR);
 
-    if ($dateChoice == "recurrente") {
+    if ($dateChoice == "recurrente") {  // Si l'événement est récurrent ...
+        // On boucle autant de fois qu'il y a d'occurences de l'événement ...
         for ($i = 0 ; $i < $recurrence ; $i++) {
+            // On assigne la date à la requête préparée et l'on exécute la requête
             $requete->bindValue(':date', $date, PDO::PARAM_STR);
             $requete->execute();
 
+            // On incrémente la date selon l'écart spécifié par l'utilisateur (ex: ' + 2 weeks', ' + 1 months'
             $date = date('Y-m-d', strtotime($date . ' + '.$recurrence2.' '.$recurrence3));
         }
-    } else {
+    } else {    // Sinon, si l'événement est ponctuel, on assigne la date du formulaire et l'on exécute la requête
         $requete->bindValue(':date', $date, PDO::PARAM_STR);
         $requete->execute();
     }
 
     $requete->closeCursor();
 }
+
+// Ci-dessous, le code html de la page d'ajout d'un événement, accessible uniquement par les membres du BDE
 ?>
 
 <!DOCTYPE html>
