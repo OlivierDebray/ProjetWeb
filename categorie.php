@@ -60,7 +60,7 @@
     {
     ?>
         <h1>Boutique de t-shirts</h1>
-            <section id="corpus" class="products">
+            <section class="products">
 
     <?php
 
@@ -78,7 +78,7 @@
     {
     ?>
         <h1> Les Drapeaux !</h1>
-            <section id="corpus" class="products">
+            <section  class="products">
 
     <?php
 
@@ -97,7 +97,7 @@
     {
         ?>
         <h1> Les Goodies !</h1>
-        <section id="corpus" class="products">
+        <section class="products">
 
             <?php
 
@@ -115,7 +115,7 @@
     elseif($_GET['page'] === 'mug') {
     ?>
         <h1> Les Mug !</h1>
-            <section id="corpus" class="products">
+            <section class="products">
 
         <?php
         $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');

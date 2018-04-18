@@ -40,7 +40,6 @@ if (empty($delete)) {
         $requete->bindValue(':image', '/'.$new_img_name, PDO::PARAM_STR);
         $requete->execute();
         $requete->closeCursor();
-
     }
     else {
         $bdd->query("DELETE FROM vote WHERE Evenement=".$_GET['id']);
