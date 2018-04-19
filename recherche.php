@@ -43,8 +43,6 @@
         <input type="radio" id="critere2" name="prix" value="DESC">
             <label for="critere1">Prix décroissant</label>
 
-        <input name="nbr" type="number" placeholder="Nombre d'artcles" step="10" min="10" max="50">
-
         <input type="submit" value="Valider"/>
     </form>
 
