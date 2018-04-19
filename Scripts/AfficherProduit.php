@@ -6,6 +6,13 @@
  * Time: 13:25
  */
 
+/* Ce script permet d'afficher un produit ou article en affichant son Nom, son Image, son Prix, sa Description et un bouton ajouter au panier
+
+Toutes les pages qui utilisent se script et qui nécessitent de se connecter à une BDD devront
+avoir une variable $query contenant la requete voulue
+*/
+
+//query fetch pour recupérer les valeur en fonction de nom de colonne dans la BDD
 while ($reponse = $query->fetch())
 {?>
     <div class='product'>
