@@ -36,7 +36,7 @@ $reponse = $query->fetch();
         ?>
         <h1>Voici votre panier !</h1>
 
-        <button onclick="window.location.assign('AnnulerPanier.php')">Supprimer votre panier</button>
+        <button class="sup" onclick="window.location.assign('AnnulerPanier.php')">Supprimer votre panier</button> 
 
         <div class="table">
             <div class="wrap">
@@ -52,7 +52,7 @@ $reponse = $query->fetch();
         </div>
         <br/>
 
-        <button onclick="window.location.assign('ValiderCommande.php')">Valider votre commande</button>
+        <button class="valide" onclick="window.location.assign('ValiderCommande.php')">Valider votre commande</button>
     <?php }?>
 </section>
 

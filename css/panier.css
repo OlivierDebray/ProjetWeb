@@ -1,5 +1,5 @@
 .table{
-	border: 2px black solid;	
+	border: 1px black solid;	
 }
 
 
@@ -30,3 +30,12 @@
 	height: 20px;
 }
 
+.valide{
+	border: 1px black solid;
+	border-radius: 15px;
+	float: right;
+}
+.sup{
+	border: 1px black solid;
+	border-radius: 15px;
+}
