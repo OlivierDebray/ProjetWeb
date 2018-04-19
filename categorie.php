@@ -6,25 +6,23 @@
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/categorie.css"/>
     <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="css/evenements.css"/>
+=======
+>>>>>>> origin/shop
     <script src="javascript/manageCart.js"></script>
 </head>
 <body>
-<!-- HEADER -->
 <?php include('includes/header.php') ?>
 
-<!-- MAIN NAV BAR -->
 <?php include('includes/mainNavbar.php') ?>
-<!-- SHOP NAV BAR -->
 <?php include ('includes/shopNavbar.php')?>
 
 <section id="corpus">
     <?php
-    // Si aucune valeur n'est passée  à la page on affiche l'acceuil
     if (!isset($_GET['page'])) {
         ?>
 
-        <!-- Affichage des différentes catégories -->
         <h1>Bienvenue sur les catégories de la boutique</h1>
         <div class="mainContainer">
             <div class="itemContainer" onclick="window.location.assign('categorie.php?page=t-shirts')">
@@ -150,7 +148,6 @@
     ?>
 </section>
 
-<!-- FOOTER -->
 <?php include('includes/footer.php') ?>
 
 </body>

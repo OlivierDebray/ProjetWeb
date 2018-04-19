@@ -46,5 +46,12 @@ if (!empty($_POST['paymentID']) AND !empty($_POST['payerID'])) {
    } else {
       $msg = "Votre paiement n'a pas été trouvé dans notre base de données. Merci de réessayer ultérieurement ou contacter un administrateur du site. (Votre compte PayPal n'a pas été débité)";
    }
+
 }
 echo json_encode(["success" => $success, "msg" => $msg, "paypal_response" => $paypal_response]);
+
+if(isset($_SESSION["id"])) {
+   $id= $_SESSION["id"];
+
+   $bdd->query("DELETE FROM panier WHERE Utilisateur = '$id'");
+}
