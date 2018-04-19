@@ -97,6 +97,7 @@ if(isset($_POST['formajout']))
 <?php include('includes/header.php') ?>
 
 <?php include('includes/mainNavbar.php') ?>
+<?php include ('includes/shopNavbar.php') ?>
 
 <section id="corpus">
     <div id="formulaire">
@@ -174,5 +175,7 @@ if(isset($_POST['formajout']))
         </form>
     </div>
 </section>
+
+<?php include ('includes/footer.php')?>
 </body>
 </html>

@@ -13,10 +13,27 @@
     <?php include('includes/mainNavbar.php') ?>
     <?php include ('includes/shopNavbar.php') ?>
 
+    <?php
+    $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
+
+    $id = $_SESSION['id'];
+
+    $query = $bdd->query("SELECT * FROM panier WHERE Utilisateur = '$id'");
+
+    $reponse = $query->fetch();
+
+    ?>
+
+
     <section id="corpus">
         <?php if (!isset($_SESSION['id'])) { ?>
-        <p>Vous devez être connecté pour voir les événements !</p>
-        <?php } else{ ?>
+            <p>Vous devez être connecté pour voir les événements !</p>
+        <?php } else if (empty($reponse['Utilisateur'])) { ?>
+            <h1>Vous n'avez pas d'articles dans votre Panier</h1>
+            <a href="boutique.php"> Retourner à la boutique</a>
+
+            <?php }else{
+            ?>
         <h1>Voici votre panier !</h1>
 
         <button onclick="window.location.assign('AnnulerPanier.php')">Supprimer votre panier</button>
@@ -34,9 +51,9 @@
             </div>   
         </div> 
     </br>
-    <?php }?>
 
     <button onclick="window.location.assign('ValiderCommande.php')">Valider votre commande</button>
+    <?php }?>
 </section>
 </body>
 

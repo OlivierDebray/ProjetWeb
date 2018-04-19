@@ -11,17 +11,21 @@
     <script src="javascript/manageCart.js"></script>
 </head>
 <body>
+<!-- HEADER -->
 <?php include('includes/header.php') ?>
 
+<!-- MAIN NAV BAR -->
 <?php include('includes/mainNavbar.php') ?>
+<!-- SHOP NAV BAR -->
 <?php include ('includes/shopNavbar.php')?>
 
 <section id="corpus">
-
     <?php
-
+    // Si aucune valeur n'est passée  à la page on affiche l'acceuil
     if (!isset($_GET['page'])) {
         ?>
+
+        <!-- Affichage des différentes catégories -->
         <h1>Bienvenue sur les catégories de la boutique</h1>
         <table>
             <tr>
@@ -55,7 +59,7 @@
         </table>
         <?php
     }
-
+    // Si la page possède la valeur t-shirts on affiche seulement les articles de la catégorie shirt
     elseif($_GET['page'] === 't-shirts')
     {
     ?>
@@ -63,17 +67,20 @@
             <section class="products">
 
     <?php
-
+        // on ouvre une connexion à la base de données puis on cherche tous les produits de la catégorie 'shirt'
        $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
        $query = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'shirt'");
        $query->execute();
 
+    // On appelle le script AfficherProduit qui permet d'afficher les articles
     include ('Scripts/AfficherProduit.php');
 
     ?>
             </section>
     <?php
     }
+
+    // Si la page possède la valeur drapeaux on affiche seulement les articles de la catégorie drapeau
     elseif($_GET['page'] === 'drapeaux')
     {
     ?>
@@ -82,17 +89,20 @@
 
     <?php
 
-        $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
+    //on ouvre une connexion à la base de données puis on cherche tous les produits de la catégorie 'drapeau'
+    $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
         $query = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'drapeau'");
         $query->execute();
 
+        // On appelle le script AfficherProduit qui permet d'afficher les articles
         include ('Scripts/AfficherProduit.php');
 
       ?>
             </section>
     <?php
-
     }
+
+    // Si la page possède la valeur goodies on affiche seulement les articles de la catégorie goodies
     elseif($_GET['page'] === 'goodies')
     {
         ?>
@@ -101,27 +111,33 @@
 
             <?php
 
+            //on ouvre une connexion à la base de données puis on cherche tous les produits de la catégorie 'goodies'
             $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
             $query = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'goodies'");
             $query->execute();
 
-
+            // On appelle le script AfficherProduit qui permet d'afficher les articles
             include ('Scripts/AfficherProduit.php');
 
             ?>
         </section>
         <?php
     }
+
+    // Si la page possède la valeur mug on affiche seulement les articles de la catégorie mug
     elseif($_GET['page'] === 'mug') {
     ?>
         <h1> Les Mug !</h1>
             <section class="products">
 
         <?php
+
+        //on ouvre une connexion à la base de données puis on cherche tous les produits de la catégorie 'mug'
         $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
         $query = $bdd->prepare("SELECT * FROM produits WHERE Categorie = 'mug'");
         $query->execute();
 
+        // On appelle le script AfficherProduit qui permet d'afficher les articles
         include ('Scripts/AfficherProduit.php');
 
         ?>
@@ -132,6 +148,7 @@
     ?>
 </section>
 
+<!-- FOOTER -->
 <?php include('includes/footer.php') ?>
 
 </body>

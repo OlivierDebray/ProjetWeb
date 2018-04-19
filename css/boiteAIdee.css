@@ -81,5 +81,6 @@ form textarea
     form p *
     {
         display: flex;
+        flex-wrap: wrap;
     }
 }
