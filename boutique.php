@@ -16,12 +16,7 @@
 
     <h1 class="corpus">Bienvenue sur la Boutique du BDE !</h1>
 
-<<<<<<< HEAD
-    <!-- Affiche les articles populaires -->
     <section class="corpus">
-=======
-    <section id="corpus">
->>>>>>> origin/shop
         <h2> Les plus Populaires ! </h2>
         <div class="products"> <?php include('scripts/DisplayPopularProduct.php') ?></div>
     </section>

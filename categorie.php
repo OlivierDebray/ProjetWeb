@@ -6,10 +6,7 @@
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/categorie.css"/>
     <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
-<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="css/evenements.css"/>
-=======
->>>>>>> origin/shop
     <script src="javascript/manageCart.js"></script>
 </head>
 <body>
