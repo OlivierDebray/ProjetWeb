@@ -21,16 +21,16 @@
 
         try{
             $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
-            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On se connecte à notre base de données.
         }
 
         catch(Exception $e){
 
-            die('Erreur:' . $e->getmessage());
+            die('Erreur:' . $e->getmessage());//On affiche une erreur si la connexion n'est pas effectué.
         }
 
 
-        if(isset($_SESSION["id"])) {
+        if(isset($_SESSION["id"])) { //On vérifie qu'un utilisateur est bien connecté.
             $id= $_SESSION["id"];
 
             $client = $bdd->query("SELECT * FROM utilisateurs WHERE ID_Utilisateurs=".$id)->fetch();
@@ -41,13 +41,14 @@
 
             while ($donnée = $reqpersonne->fetch()){
 
-                $message = $client['Nom']." ".$client['Prenom']." a commandé sur le site du BDE. Veuillez le contacter afin de lui donner un rendez-vous à l'adresse mail: " .$client['Mail'];
+                $message = $client['Nom']." ".$client['Prenom']." a commandé sur le site du BDE. Veuillez le contacter afin de lui donner un rendez-vous à l'adresse mail: " .$client['Mail']; //On crée le message a envoyé au membre du BDE.
 
                 $bdd->query("INSERT INTO notifications (FK_ID_Utilisateur, Message) VALUES ( ".$donnée['ID_Utilisateurs'].",'".addslashes($message)."')");
+                //On remplit la table notification lors d'une transaction.
             }
 
             while ($produitsCommande = $commande->fetch()) {
-                $bdd->query("INSERT INTO commande (Utilisateur, Produit, Date, Quantité) VALUES (".$id.",'".$produitsCommande['Produit']."',now(),".$produitsCommande['Quantite'].")");
+                $bdd->query("INSERT INTO commande (Utilisateur, Produit, Date, Quantité) VALUES (".$id.",'".$produitsCommande['Produit']."',now(),".$produitsCommande['Quantite'].")"); //On insert les données dans la table commande lorsque la commande est passée.
             }
 
         }
