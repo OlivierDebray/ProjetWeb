@@ -6,6 +6,10 @@
  * Time: 15:38
  */
 
+/*
+ * Ce script permet d'afficher les produit les plus populaire dans la boutique
+ */
+
 try {
 
 
