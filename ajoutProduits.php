@@ -106,7 +106,7 @@ if(isset($_POST['formajout']))
             <table id="table">
                 <tr>
                     <td class="label">
-                        <label for="nom">Nom :</label>
+                        <label for="nom_produit">Nom :</label>
                     </td>
                     <td>
                         <input class="champ" type="text" placeholder="Nom du produit" id="nom_produit" name="nom_produit" value="<?php if(isset($nom_produit)) { echo $nom_produit; } ?>"/>
@@ -123,7 +123,6 @@ if(isset($_POST['formajout']))
                 </tr>
 
                 <tr>
-                    <tr>
                     <td class="label">
                         <label for="description">Description :</label>
                     </td>
@@ -133,7 +132,6 @@ if(isset($_POST['formajout']))
                 </tr>
 
                 <tr>
-                    <tr>
                     <td class="label">
                         <label for="categorie">Categorie :</label>
                     </td>
@@ -153,10 +151,10 @@ if(isset($_POST['formajout']))
 
                 <tr>
                     <td class="label">
-                        <label for="image">Image du produit :</label>
+                        <label for="imageProduits">Image du produit :</label>
                     </td>
                     <td>
-                        <input class="champ" type="file" placeholder="image du produit" id="imageProduits" name="imageProduits" value="<?php if(isset($imageProduits['name'])) { echo $imageProduits['name']; } ?>"/>
+                        <input class="champ" type="file" id="imageProduits" name="imageProduits" /> <!--value="<?php // if(isset($imageProduits['name'])) { echo $imageProduits['name']; } ?>"-->
                     </td>
                 </tr>
                 

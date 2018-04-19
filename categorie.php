@@ -1,13 +1,12 @@
 <?php session_start() ?>
 
 <!DOCTYPE html>
-
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/categorie.css"/>
-    <<link rel="stylesheet" type="text/css" href="css/boutique.css"/>
+    <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
+    <link rel="stylesheet" type="text/css" href="css/evenements.css"/>
     <script src="javascript/manageCart.js"></script>
 </head>
 <body>
@@ -27,36 +26,39 @@
 
         <!-- Affichage des différentes catégories -->
         <h1>Bienvenue sur les catégories de la boutique</h1>
-        <table>
-            <tr>
-                <td>
+        <div class="mainContainer">
+            <div class="itemContainer" onclick="window.location.assign('categorie.php?page=t-shirts')">
+                <h2>
+                    T-Shirts
+                </h2>
+                <p>Portez les couleurs de l'école !</p>
+            </div>
+            <div class="itemContainer" onclick="window.location.assign('categorie.php?page=drapeaux')">
+                <h2>
+                    Drapeaux
+                </h2>
+                <p>Brandissez les !</p>
+            </div>
+            <div class="itemContainer" onclick="window.location.assign('categorie.php?page=goodies')">
+                <h2>
+                    Goodies
+                </h2>
+                <p>Bracelets, bonbons, balles rebondissantes !</p>
+            </div>
+            <div class="itemContainer" onclick="window.location.assign('categorie.php?page=mug')">
+                <h2>
+                    Mugs
+                </h2>
+                <p>Les Mugs!</p>
+            </div>
+            <?php if (isset($_SESSION['etat']) AND ($_SESSION['etat'] == 1)) { ?>
+                <div class="itemContainer" onclick="window.location.assign('ajoutProduit.php')">
                     <h2>
-                        <a href="?page=t-shirts">T-Shirt</a>
+                        [BDE] Ajouter un produit
                     </h2>
-                    <p>Portez les couleurs de l'école !</p>
-                </td>
-                <td>
-                    <h2>
-                        <a href="?page=drapeaux">Drapeaux</a>
-                    </h2>
-                    <p>Brandissez les !</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h2>
-                        <a href="?page=goodies">Goodies</a>
-                    </h2>
-                    <p>Bracelets, bonbons, balles rebondissante !</p>
-                </td>
-                <td>
-                    <h2>
-                        <a href="?page=mug">Mugs</a>
-                    </h2>
-                    <p>Les Mugs!</p>
-                </td>
-            </tr>
-        </table>
+                </div>
+            <?php } ?>
+        </div>
         <?php
     }
     // Si la page possède la valeur t-shirts on affiche seulement les articles de la catégorie shirt

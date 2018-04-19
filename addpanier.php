@@ -19,13 +19,13 @@ if(isset($_SESSION["id"])) {//On vérifie qu'un utilisateur est connecté en ré
     while($donnée = $reqpanier->fetch())//On parcourt l'ensemble des données récupérées.
     { ?>
         <div class="row" id="row<?php echo $donnée['Produit']; ?>">  <!--On récupère les différentes données à l'aide de $donnée[''] et on les affiches dans le code HTML. --> 
-            <img class="img" src='images/produits/<?php echo $donnée['url']?>'>
+            <img alt="produit" class="img" src='images/produits/<?php echo $donnée['url']?>'>
             <span class= "name"><?php echo $donnée['Nom']?></span>
-            <span class="price"><?php echo $donnée['Prix'] * $donnée['Quantite']?></span>
+            <span class="price"><?php echo ($donnée['Prix'] * $donnée['Quantite']) ?></span>
             <span class="Quantity"> <?php echo $donnée['Quantite']; ?></span>
             <img onclick="removeFromCart(<?php echo $donnée['Produit']; ?>)" class="corb" src="images/corbeille.jpg" alt="suppr"/>
         </div>
-        </br>
+        <br/>
         <?php
     }
 }

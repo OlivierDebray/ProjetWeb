@@ -47,7 +47,7 @@
             }
 
             while ($produitsCommande = $commande->fetch()) {
-                $bdd->query("INSERT INTO commande (Utilisateur, Produit, Date, Quantité) VALUES (".$id.",'".$produitsCommande['Produit']."',now(),".$produitsCommande['Quantite'].")");
+                $bdd->query("INSERT INTO commande (Utilisateur, Produit, Date, Quantite) VALUES (".$id.",'".$produitsCommande['Produit']."',now(),".$produitsCommande['Quantite'].")");
             }
 
             $bdd->query("DELETE FROM panier WHERE Utilisateur = '$id'");
