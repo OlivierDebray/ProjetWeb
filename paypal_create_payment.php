@@ -13,10 +13,9 @@ catch(Exception $e){
 if(isset($_SESSION["id"])) {//On vérifie que l'utilisateur est bien connecté.
    $id= $_SESSION["id"];
 
-   $reqpanier = $bdd->query("SELECT * FROM produits INNER JOIN panier ON produits.ID_Produits = panier.Produit WHERE panier.Utilisateur = '$id'")->fetch();
+   $reqpanier = $bdd->query("SELECT SUM(Prix*Quantite) FROM produits INNER JOIN panier ON produits.ID_Produits = panier.Produit WHERE panier.Utilisateur = '$id'")->fetch();
 
-   $Total = $reqpanier['Prix'];
-   
+$Total = $reqpanier;
 
 require_once "PayPalPayment.php";
 
@@ -41,7 +40,7 @@ $payment_data = [
    "transactions" => [
       [
          "amount" => [
-            "total" => strval($Total),
+            "total" => strval($Total['0']),
             "currency" => "EUR"
          ],
          "description" => "Achat article du BDE CESI"
