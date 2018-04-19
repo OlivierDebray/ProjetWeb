@@ -6,8 +6,9 @@ function supprimerImage(user,idImg) {
     notifyBDE(user+" a supprimé la photo d'ID "+idImg);
 }
 
-function supprimerCommentaire(user,idComment) {
-    notifyBDE(user+" a supprimé le commentaire d'ID "+idComment);
+function supprimerCommentaire(user,idImg, commentAuthor, idAuthor) {
+    notifyBDE(user+" a supprimé le commentaire de "+commentAuthor+" sur l'image d'ID "+idImg);
+    deleteComment(idImg, idAuthor);
 }
 
 function notifyBDE(message) {
