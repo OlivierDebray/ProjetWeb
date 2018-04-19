@@ -9,6 +9,6 @@
 </p>
 <?php } ?>
 <div id="iframes">
-    <iframe id="fbTimeline" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcesiorleans%2F&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+    <iframe id="fbTimeline" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcesiorleans%2F&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="340" height="500" style="border:none;overflow:hidden;"></iframe>
     <iframe id="googleMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2677.7158674384023!2d1.9384669156238037!3d47.84509757920122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e4e3f523c406f3%3A0xa77ad1a864bef52c!2s1+All%C3%A9e+du+Titane%2C+45100+Orl%C3%A9ans!5e0!3m2!1sfr!2sfr!4v1523370830102" allowfullscreen></iframe>
 </div>
