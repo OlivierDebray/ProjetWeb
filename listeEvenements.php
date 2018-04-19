@@ -53,7 +53,7 @@
             while ($reponse = $eventReq->fetch()) { ?>
                 <div class='divEvent'>
                     <h4 class="idEvent">Evénement numéro <?php echo $reponse['ID_Evenements']?></h4>
-                    <div class='titreEvent'><h3><?php echo $reponse["Nom"] . "&nbsp;" ?></h3>à <?php echo $reponse["Lieu"] ?></div>
+                    <div class='titreEvent'><h3><?php echo $reponse["Nom"] . "&nbsp;" ?></h3>à <?php echo $reponse["Lieu"] ?> le <?php echo date("d/m/Y", strtotime($reponse['Date'])); ?></div>
                     <div class="contenuEvent">
                         <img class="imgEvent" id="imgIdee<?php echo $reponse['ID_Evenements']?>" src="images/Suggestionbox<?php echo $reponse['Image'] ?>" alt="Image de l'événement" onclick="downloadImg(<?php echo $reponse['ID_Evenements']?>)"/>
                         <p><?php echo $reponse['Description'] ?></p>
