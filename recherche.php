@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
 <head>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
@@ -30,11 +30,11 @@
 
 
 
-<h1 id="corpus">Rechercher un Produit.</h1>
-<section id="corpus">
+<h1 class="corpus">Rechercher un Produit.</h1>
+<div class="corpus">
     <form method="GET">
 
-        <label for="nom">Tapez le nom d'un produit</label>
+        <label>Tapez le nom d'un produit</label>
         <input id="recherche" type="search" name="q" placeholder="Recherche"/>
 
         <input type="radio" id="critere1" name="prix" value="ASC">
@@ -46,15 +46,13 @@
         <input type="submit" value="Valider"/>
     </form>
 
-</section>
+</div>
 
-<section id="corpus">
+<div class="corpus">
     <div class="products">
         <?php include ('Scripts/outilRecherche.php');?>
-
-
     </div>
-</section>
+</div>
 </body>
 
 </html>

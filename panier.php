@@ -1,7 +1,7 @@
 <?php session_start() ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/panier.css" />
@@ -9,37 +9,37 @@
 </head>
 
 <body>
-    <?php include ('includes/header.php') ?>
-    <?php include('includes/mainNavbar.php') ?>
-    <?php include ('includes/shopNavbar.php') ?>
+<?php include ('includes/header.php') ?>
+<?php include('includes/mainNavbar.php') ?>
+<?php include ('includes/shopNavbar.php') ?>
 
-    <?php
-    $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
+<?php
+$bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
 
-    $id = $_SESSION['id'];
+$id = $_SESSION['id'];
 
-    $query = $bdd->query("SELECT * FROM panier WHERE Utilisateur = '$id'");
+$query = $bdd->query("SELECT * FROM panier WHERE Utilisateur = '$id'");
 
-    $reponse = $query->fetch();
+$reponse = $query->fetch();
 
-    ?>
+?>
 
 
-    <section id="corpus">
-        <?php if (!isset($_SESSION['id'])) { ?>
-            <p>Vous devez être connecté pour voir les événements !</p>
-        <?php } else if (empty($reponse['Utilisateur'])) { ?>
-            <h1>Vous n'avez pas d'articles dans votre Panier</h1>
-            <a href="boutique.php"> Retourner à la boutique</a>
+<section id="corpus">
+    <?php if (!isset($_SESSION['id'])) { ?>
+        <p>Vous devez être connecté pour voir les événements !</p>
+    <?php } else if (empty($reponse['Utilisateur'])) { ?>
+        <h1>Vous n'avez pas d'articles dans votre Panier</h1>
+        <a href="boutique.php"> Retourner à la boutique</a>
 
-            <?php }else{
-            ?>
+    <?php }else{
+        ?>
         <h1>Voici votre panier !</h1>
 
         <button onclick="window.location.assign('AnnulerPanier.php')">Supprimer votre panier</button>
 
-<div class="table">
-        <div class="wrap">
+        <div class="table">
+            <div class="wrap">
                 <div class="rowtitle">
                     <span class="image"> </span>
                     <span class= "name"> NomProduit</span>
@@ -47,15 +47,15 @@
                     <span class="Quantity"> Quantite</span>
                     <span class="action"> Supprimer</span>
                 </div>
-                <p> <?php include('addpanier.php') ?></p>
-            </div>   
-        </div> 
-    </br>
+                <?php include('addpanier.php') ?>
+            </div>
+        </div>
+        <br/>
 
-    <button onclick="window.location.assign('ValiderCommande.php')">Valider votre commande</button>
+        <button onclick="window.location.assign('ValiderCommande.php')">Valider votre commande</button>
     <?php }?>
 </section>
-</body>
 
 <?php include('includes/footer.php') ?>
+</body>
 </html>
