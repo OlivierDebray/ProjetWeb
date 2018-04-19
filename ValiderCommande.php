@@ -50,8 +50,6 @@
                 $bdd->query("INSERT INTO commande (Utilisateur, Produit, Date, Quantité) VALUES (".$id.",'".$produitsCommande['Produit']."',now(),".$produitsCommande['Quantite'].")");
             }
 
-            $bdd->query("DELETE FROM panier WHERE Utilisateur = '$id'");
-
         }
 
         else {
@@ -106,7 +104,8 @@
           if (data.success) { // Si le paiement a bien été validé, on peut par exemple rediriger l'utilisateur vers une nouvelle page, ou encore lui afficher un message indiquant que son paiement a bien été pris en compte, etc.
             // Exemple : window.location.replace("Une url quelconque");
             alert("Paiement approuvé ! Merci !");
-          } else {
+          } 
+          else {
             // Sinon, si "success" n'est pas vrai, cela signifie que l'exécution du paiement a échoué. On peut donc afficher notre message d'erreur créé côté serveur et stocké dans "data.msg".
             alert(data.msg);
           }

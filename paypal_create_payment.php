@@ -10,6 +10,14 @@ catch(Exception $e){
 	die('Erreur:' . $e->getmessage());//On affiche une exception quand la connexion n'a pas été effectué.
 }
 
+if(isset($_SESSION["id"])) {//On vérifie que l'utilisateur est bien connecté.
+   $id= $_SESSION["id"];
+
+   $reqpanier = $bdd->query("SELECT * FROM produits INNER JOIN panier ON produits.ID_Produits = panier.Produit WHERE panier.Utilisateur = '$id'")->fetch();
+
+   $Total = $reqpanier['Prix'];
+   
+
 require_once "PayPalPayment.php";
 
 $success = 0;
@@ -33,24 +41,14 @@ $payment_data = [
    "transactions" => [
       [
          "amount" => [
-            "total" => "9.99",
+            "total" => strval($Total),
             "currency" => "EUR"
          ],
-         "item_list" => [
-            "items" => [
-               [
-                  "sku" => "1PK5Z9",
-                  "quantity" => "1",
-                  "name" => "Un produit quelconque",
-                  "price" => "9.99",
-                  "currency" => "EUR"
-               ]
-            ]
-         ],
-         "description" => "Description du paiement..."
+         "description" => "Achat article du BDE CESI"
       ]
    ]
 ];
+
 
 $paypal_response = $payer->createPayment($payment_data);
 $paypal_response = json_decode($paypal_response);
@@ -74,3 +72,5 @@ if (!empty($paypal_response->id)) {
 }
 
 echo json_encode(["success" => $success, "msg" => $msg, "paypal_response" => $paypal_response]);
+
+}
