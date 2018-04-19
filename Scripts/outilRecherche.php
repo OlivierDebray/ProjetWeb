@@ -6,14 +6,16 @@
  * Time: 10:11
  */
 
+        //connexion à la BDD
         $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root','');
 
 
+        //Si la page a une valeur q = nom et que cette variable n'est pas vide et que la variable prix est n'est pas attribué
 
-        if (isset($_GET['q']) AND !empty($_GET['q']) AND !isset($_GET['prix']) AND empty($_GET['prix']))
+        if (isset($_GET['q']) AND !empty($_GET['q']) AND !isset($_GET['prix']) )
         {
-
-            $q = htmlspecialchars($_GET['q']);
+            // on récupère la valeur du nom entrer dans le champ de recherche
+            $q = $_GET['q'];
 
             $query = $bdd->query('SELECT * FROM produits
         WHERE Nom LIKE "%'.$q.'%" ');
