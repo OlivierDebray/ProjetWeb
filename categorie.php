@@ -1,13 +1,11 @@
 <?php session_start() ?>
 
 <!DOCTYPE html>
-
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/categorie.css"/>
-    <<link rel="stylesheet" type="text/css" href="css/boutique.css"/>
+    <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
     <script src="javascript/manageCart.js"></script>
 </head>
 <body>

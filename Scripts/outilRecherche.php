@@ -17,6 +17,7 @@
             // on récupère la valeur du nom entrer dans le champ de recherche
             $q = $_GET['q'];
 
+            //on cherche les prodiuits correspondant au nom entré
             $query = $bdd->query('SELECT * FROM produits
         WHERE Nom LIKE "%'.$q.'%" ');
 
