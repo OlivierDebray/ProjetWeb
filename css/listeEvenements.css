@@ -78,7 +78,7 @@ form textarea, .commentaire
 }
 
 @media all and (max-width: 550px) {
-    .contenuIdee
+    .contenuEvent
     {
         flex-wrap: wrap;
         justify-content: center;

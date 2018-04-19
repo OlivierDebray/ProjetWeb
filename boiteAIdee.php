@@ -39,7 +39,7 @@
                 <div class='divIdee'>
                     <h4 class='idIdee'>Idée numéro <?php echo $reponse['ID_Evenements']?></h4>
                     <div class='titreIdee'><h3><?php echo $reponse["Nom"] . "&nbsp;" ?></h3>à <?php echo $reponse["Lieu"] ?></div>
-                    <div class="contenuIdee">
+                    <div class="contenuEvent">
                         <img class="imgIdee" id="imgIdee<?php echo $reponse['ID_Evenements']?>" src="images/Suggestionbox<?php echo $reponse['Image'] ?>" alt="Image de l'idée" onclick="downloadImg(<?php echo $reponse['ID_Evenements']?>)"/>
                         <p><?php echo $reponse['Description'] ?></p>
                     </div>
