@@ -60,6 +60,11 @@
                     </div>
                     <?php // Si l'inscription à l'événement est ouverte
                     if ($inscriptionOuverte) {
+                        echo "Participation : ".$reponse['Payant'];
+                        if ($reponse['Payant'] != "gratuite")
+                            echo "€";
+                        echo "<br/>";
+
                         // On récupère si l'utilisateur est déjà inscrit à l'événement
                         // En fonction, il pourra soit se désinscrire ou s'inscrire à l'événement
                         $participationReq = $bdd->prepare("SELECT COUNT(*) FROM participation WHERE Utilisateur=? AND Evenement=?");
@@ -78,27 +83,22 @@
                     // Si l'utilisateur est membre du BDE, il peut accéder à la liste des participants
                     if ($status == 1) { ?>
                         <button onclick="window.location.assign('scripts/exportPDF.php?listParticipant=<?php echo $reponse['ID_Evenements'] ?>')">Liste des participants</button>
-                    <?php } ?>
+                    <?php }
 
-<?php
 //------------------------requete pour savoir si l'utilisateur a bien participé à l'évenement------
 
                         $check = $bdd->prepare('SELECT * FROM participation WHERE Utilisateur = ? AND Evenement = ?');
                         $check->execute(array($_SESSION['id'],$reponse['ID_Evenements']));
                         $check=$check->fetch();
                         if (!empty($check) AND ($_GET['page'] == "passes"))
-                        { ?>
+                        {
 
-<?php //------------------ajout d'un bouton pour aller au formulaire d'ajout de photo---------- ?>
+//------------------ajout d'un bouton pour aller au formulaire d'ajout de photo---------- ?>
                             <button onclick="window.location.assign('ajoutPhoto.php?numEvent=<?php echo $reponse['ID_Evenements'] ?>')">ajouter une photo</button>
                             <?php
-                        } ?>
+                        }
 
-<?php//--------------------------------------------------------------------------------?>
-
-
-
-<?php//----------------Ajout d'un bouton pour telecharger et voir les photos si on est salarié-----------?>
+//----------------Ajout d'un bouton pour telecharger et voir les photos si on est salarié-----------?>
 
                     <?php if ($_GET['page'] == "passes") { ?>
                         <button onclick="window.location.assign('voirPhoto.php?numEvent=<?php echo $reponse['ID_Evenements'] ?>')">Voir les photos</button>
@@ -106,12 +106,11 @@
 
                     <?php if ($status == 2 and ($_GET['page'] == "passes")) { ?>
                         <button onclick="window.location.assign('downloadPhotos.php?numEvent=<?php echo $reponse['ID_Evenements'] ?>')">Telecharger les photos</button>
-                    <?php } ?>
+                    <?php }
 
+//------------------------------------------------------------------------------------------
 
-<?php//------------------------------------------------------------------------------------------?>
-
-                    <?php if ($_SESSION['etat'] == 2) { ?>
+                    if ($_SESSION['etat'] == 2) { ?>
                         <button onclick="supprimerEvenement(<?php echo "'".$_SESSION['nom']." ".$_SESSION['prenom']."',".$reponse['ID_Evenements'] ?>)">Supprimer cet événement et notifier le BDE</button>
                     <?php } ?>
                 </div>

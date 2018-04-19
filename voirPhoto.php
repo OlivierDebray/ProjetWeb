@@ -25,9 +25,12 @@
     while ($reponse = $query->fetch())
     { ?>
         <div class="divPhoto">
+            <img src='images/photosEvenement/<?php echo $_GET['numEvent']?>/<?php echo $reponse['url']?>' class='imgprod' alt="image" />
             <div class='product'>
-                <img src='images/photosEvenement/<?php echo $_GET['numEvent']?>/<?php echo $reponse['url']?>' class='imgprod' alt="image" />
-                <button onclick="window.location.assign('downloadPicture.php?numImage=<?php echo $reponse['ID_Image']?>')">Telecharger</button>
+                <?php if ($_SESSION['etat'] != 0) {
+                    echo "<button onclick=\"window.location.assign('downloadPicture.php?numImage=".$reponse['ID_Image']."')\">Telecharger</button>";
+                }
+                ?>
                 <?php if ($_SESSION['etat'] == 1) {
                     echo "<button onclick='supprimerImage(\"\",".$reponse['ID_Image'].")'>Supprimer la photo</button>";
                 }

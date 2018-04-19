@@ -86,7 +86,7 @@ if (isset($_POST['formAddEvent'])) {
 
 <section id="corpus">
     <h1>Ajout d'un d'événement</h1>
-    <form method="POST" action="" autocomplete="on" enctype="multipart/form-data">
+    <form method="POST" autocomplete="on" enctype="multipart/form-data">
         <p>
             <label for="event">
                 Titre :
