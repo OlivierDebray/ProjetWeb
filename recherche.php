@@ -12,6 +12,7 @@
     <script src="javascript/manageCart.js"></script>
 
     <script>
+        //Appel du script d'autocompletion de JqueryUi avec une source distante
         $(function() {
             $( "#recherche" ).autocomplete({
                 source: 'Scripts/liste.php'

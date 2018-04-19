@@ -17,16 +17,18 @@
             // on récupère la valeur du nom entrer dans le champ de recherche
             $q = $_GET['q'];
 
+            //on cherche les prodiuits correspondant au nom entré
             $query = $bdd->query('SELECT * FROM produits
         WHERE Nom LIKE "%'.$q.'%" ');
 
+            //Appel du Script d'affichage
             include ('AfficherProduit.php');
 
         }
         else if (isset($_GET['q']) AND !empty($_GET['q']) AND isset($_GET['prix']) AND !empty($_GET['prix'])){
 
-            $q = htmlspecialchars($_GET['q']);
-            $prix = htmlspecialchars($_GET['prix']);
+            $q = $_GET['q'];
+            $prix = $_GET['prix'];
 
             $query = $bdd->query('SELECT * FROM produits WHERE Nom LIKE "%'.$q.'%" ORDER BY Prix '.$prix.' ');
 
