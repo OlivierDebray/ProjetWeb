@@ -9,14 +9,14 @@
     height: 100%;
 }
 
-.divEvent
+.divEvent, .divPhoto
 {
     border-bottom: 2px solid black;
     margin: 5px 0;
     padding-bottom: 10px;
 }
 
-.divEvent *:not(p)
+.divEvent *:not(p), .divPhoto *:not(p)
 {
     margin: 0;
 }
@@ -33,7 +33,7 @@
     align-items: center;
 }
 
-.imgEvent
+.imgEvent, .imgprod
 {
     height: 30vh;
 }
@@ -65,10 +65,16 @@
     flex: auto;
 }
 
-form textarea
+form textarea, .commentaire
 {
     resize: none;
     width: 100%;
+}
+
+.comment
+{
+    border: 2px solid grey;
+    padding: 5px;
 }
 
 @media all and (max-width: 550px) {
