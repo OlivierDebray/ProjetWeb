@@ -9,9 +9,14 @@
     <script src="javascript/manageCart.js"></script>
 </head>
 <body>
+    <!-- HEADER -->
     <?php include ('includes/header.php') ?>
+    <!-- MAIN NAV BAR -->
     <?php include('includes/mainNavbar.php') ?>
+
+    <!-- SHOP NAV BAR -->
     <?php include ('includes/shopNavbar.php') ?>
+    
     <h1 id="corpus">Bienvenue sur la Boutique du BDE !</h1>
 
     <section id="corpus">
