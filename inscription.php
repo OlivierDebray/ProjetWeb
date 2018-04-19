@@ -1,7 +1,8 @@
 <?php
+//on se connecte à la bdd
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=projetweb;charset=utf8', 'root', '');
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=projetweb', 'root', '');
-
+// Si on appuie sur le bonton "je m'inscris", alors on récupère les informations des champs du formulaire
 if(isset($_POST['forminscription']))
 {
     $nom = htmlspecialchars($_POST['nom']);
@@ -13,27 +14,38 @@ if(isset($_POST['forminscription']))
     $mdp3 = htmlspecialchars($_POST['mdp']);
     $status = "0";
 
+    //On regarde si les champs ont bien été rempli
     if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']))
     {
+        //si le nom depasse pas 255 charactères
         $nomlenght = strlen($nom);
         if ($nomlenght <= 255)
         {
+            //si le prénom depasse pas 255 charactères
             $prenomlenght = strlen($prenom);
             if ($prenomlenght <= 255)
             {
+                //si les deux mails sont identique
                 if ($mail == $mail2)
                 {
+                    //Valide l'adresse mail
                     if (filter_var($mail, FILTER_VALIDATE_EMAIL))
                     {
+                        //on regarde les adresse mail
                         $reqmail = $bdd->prepare("SELECT * FROM utilisateurs WHERE mail = ?");
                         $reqmail->execute(array($mail));
                         $mailexist = $reqmail->rowCount();
+
+                        //si l'adresse mail existe deja
                         if ($mailexist == 0)
                         {
+                            //si le mot de passe possede au moins une majuscule, un chiffre et si il fait plus de 8 characteres
                             if (preg_match("~[A-Z]+~", $mdp3) AND preg_match("~[0-9]~", $mdp3) AND strlen($mdp3) > 8)
                             {
+                                //si le mot de passe et le mot de passe de vérification sont identique
                                 if ($mdp == $mdp2)
                                 {
+                                    //alors on insert les informations dans la bdd et l'utilisateur et bien inscrit
                                     $insertmbr = $bdd->prepare("INSERT INTO utilisateurs(nom, prenom, mail, motdepasse, status) VALUES (?, ?, ?, ?, ?)");
                                     $insertmbr->execute(array($nom, $prenom, $mail, $mdp, $status));
                                     $erreur = "Votre compte a bien été créé !";
@@ -167,6 +179,7 @@ if(isset($_POST['forminscription']))
             </p>
 
             <?php
+            // lorsque qu'on arrive pas a rentrer dans une boucle on affiche l'erreur correspondante
             if (isset($erreur))
                 echo "<p>" . $erreur . "</p>";
             ?>

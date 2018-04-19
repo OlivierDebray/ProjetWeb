@@ -20,7 +20,7 @@ if (empty($delete)) {
      * On convertit l'extension de l'image récupérée en minuscule
      * On définit dans une array les extensions acceptées
      * On stocke dans une variable la date actuelle
-     * On stocke le nom de l'image constitué de la date et du temps, suivis de l'extension
+     * On stocke le nom de l'image constitué de la date et du temps, suivis de l'extension dans une variable
      * On stocke le chemin où sera sauvegardée l'image dans une variable
     */
 
@@ -58,7 +58,7 @@ if (empty($delete)) {
 
     /*
      * S'il n'y a pas d'ID spécifié en GET
-     * On récupère les données entrées par l'utilisateur
+     * On récupère les données entrées par l'utilisateur et on les insère dans la table
     */
     if (!isset($_GET['id'])) {
         // Requête préparée pour empêcher les injections SQL

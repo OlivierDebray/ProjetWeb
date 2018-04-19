@@ -19,9 +19,14 @@
     <h1>Voir les photos de l'événement</h1>
 
     <?php
+    /*
+     * On récupère toutes les données correspondant à l'évènement défini
+     */
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=projetweb;charset=utf8', 'root', '');
     $query=$bdd->prepare("SELECT * FROM image WHERE Evenement = ?");
     $query->execute(array($_GET['numEvent']));
+
+    //On parcourt toutes les images
     while ($reponse = $query->fetch())
     { ?>
         <div class="divPhoto">
@@ -40,7 +45,13 @@
                 ?>
             </div>
             <div class="userAction">
-                <?php $likeReq = $bdd->prepare("SELECT COUNT(*) FROM `action` WHERE Image=? AND `Like`=1");
+                <?php
+
+                /*
+                 * On récupère tout les likes d'une image définie
+                 * On récupère tout les likes d'un utilisateur, pour une image définie
+                 */
+                $likeReq = $bdd->prepare("SELECT COUNT(*) FROM `action` WHERE Image=? AND `Like`=1");
                 $likeReq->execute(array($reponse['ID_Image']));
                 $likes = $likeReq->fetch();
 
@@ -59,16 +70,26 @@
             <textarea id="textarea<?php echo $reponse['ID_Image'] ?>" class="commentaire" placeholder="Votre commentaire..." maxlength="255"></textarea>
             <button id="button<?php echo $reponse['ID_Image'] ?>" onclick="addComment(<?php echo $reponse['ID_Image'].",".$_SESSION['id'] ?>)">Poster mon commentaire</button>
             <?php
+            // On récupère les commentaires d'une image
             $commentaire2 = $bdd->prepare('SELECT * FROM action WHERE Image = ? AND Commentaire IS NOT NULL');
             $commentaire2->execute(array($reponse['ID_Image']));
 
             echo "<div id='commentContainer".$reponse['ID_Image']."'>";
+            /*
+             * Lecture de tout les commentaires
+             * Affichage des commentaires, par utilisateur
+             */
             while ($c = $commentaire2->fetch())
             {
                 $currentUser = $bdd->query("SELECT * FROM utilisateurs WHERE ID_Utilisateurs=".$c['Utilisateur'])->fetch();
                 echo "<p class='comment'>";
                 echo "<strong>".$currentUser['Prenom']." ".$currentUser['Nom']." a dit :</strong><br/>";
                 echo $c['Commentaire'];
+
+                /*
+                 * Si l'utilisateur est un membre du BDE ou un personnel du CESI
+                 * On permet la suppresion du commentaire, avec des distinctions
+                 */
                 if (($c['Utilisateur'] == $_SESSION['id']) OR ($_SESSION['etat'] == 1))
                     echo "<br/><button onclick='deleteComment(".$reponse['ID_Image'].",".$c['Utilisateur'].")'>Supprimer le commentaire</button>";
                 else if ($_SESSION['etat'] == 2)
