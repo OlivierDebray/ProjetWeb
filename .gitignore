@@ -1,7 +1,14 @@
-.idea/vcs.xml
+<<<<<<< HEAD
+.idea/misc.xml
 .idea/workspace.xml
 .idea/modules.xml
-.idea/BDEOrléans.iml
+.idea/vcs.xml
 .idea/ProjetWeb.iml
-.idea/misc.xml
-.idea/inspectionProfiles/Project_Default.xml
+.idea/php.xml
+.idea/workspace.xml
+=======
+
+>>>>>>> origin/shop
+includes/head.php
+Scripts/DisplayNewestProduct.php
+Scripts/DisplayPopularProduct.php
