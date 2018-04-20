@@ -2,6 +2,7 @@
 // Script PHP permettant d'ajouter et de gérer les idées
 
 $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
+$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Paramètres envoyés en GET à la fonction : l'ID de l'idée, sa description, 
 $event = $_POST['event'];
@@ -9,6 +10,11 @@ $description = $_POST['description'];
 $location = $_POST['location'];
 $delete = $_POST['delete'];
 $date = $_POST['date'];
+
+if (isset($_POST['id']))
+    $idEvent = $_POST['id'];
+if (isset($_GET['id']))
+    $idEvent = $_GET['id'];
 
 // Si le bouton delete n'existe pas
 if (empty($delete)) {
@@ -95,10 +101,10 @@ if (empty($delete)) {
  * On supprime l'idée
 */
 else if ($delete == "Supprimer") {
-    $bdd->query("DELETE FROM vote WHERE Evenement=".$_GET['id']);
-    $bdd->query("DELETE FROM evenements WHERE ID_Evenements=".$_GET['id']);
+    $bdd->query("DELETE FROM vote WHERE Evenement=".$idEvent);
+    $bdd->query("DELETE FROM participation WHERE Evenement=".$idEvent);
+    $req = $bdd->query("DELETE FROM `evenements` WHERE `ID_Evenements`=".$idEvent);
 }
 
-header('Location:../boiteaidee.php?page=submit&result=1');
+//header('Location:../boiteaidee.php?page=submit&result=1');
 ?>
-

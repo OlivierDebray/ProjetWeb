@@ -15,9 +15,9 @@ function supprimerEvenement(user,idEvent) {
         }
     };
 
-    xmlhttp.open("POST","scripts/addActivity.php?id="+idEvent,true);
+    xmlhttp.open("POST","scripts/addActivity.php",true);
     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xmlhttp.send("delete=Supprimer");
+    xmlhttp.send("delete=Supprimer&id="+idEvent);
 }
 
 function supprimerImage(user,idImg) {
