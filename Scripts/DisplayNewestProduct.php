@@ -15,7 +15,8 @@ try
     $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root','');
 
     //Requête pour selectionner les produits en fonction de leur date d'ajout
-    $query = $bdd->query("SELECT * FROM Produits ORDER BY DateAjout DESC");
+    $query = $bdd->prepare("SELECT * FROM Produits ORDER BY DateAjout DESC LIMIT 3");
+    $query->execute();
 
     //appel du script d'affichage de produit
     include ('AfficherProduit.php');

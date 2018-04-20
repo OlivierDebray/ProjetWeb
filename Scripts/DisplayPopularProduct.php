@@ -16,9 +16,11 @@ try {
     $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
 
 
-    $query = $bdd->query("SELECT * FROM produits 
+    $query = $bdd->prepare("SELECT * FROM produits 
     WHERE ID_Produits IN (SELECT Produit FROM `commande` 
-    GROUP BY Produit ORDER BY COUNT(Produit) DESC)  ");
+    GROUP BY Produit ORDER BY COUNT(Produit) DESC) LIMIT 3 ");
+
+    $query->execute();
 
 
     include ('AfficherProduit.php');
