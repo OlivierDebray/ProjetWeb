@@ -35,7 +35,6 @@ if (isset($_SESSION['id'])) {
         ?>
         <h1>Voici votre panier !</h1>
 
-        <button class="sup" onclick="window.location.assign('AnnulerPanier.php')">Supprimer votre panier</button> 
 
         <div class="table">
             <div class="wrap">
@@ -49,9 +48,11 @@ if (isset($_SESSION['id'])) {
                 <?php include('addpanier.php') ?>
             </div>
         </div>
-        <br/>
 
-        <button class="valide" onclick="window.location.assign('ValiderCommande.php')">Valider votre commande</button>
+        <span id="button">
+            <button class="valide" onclick="window.location.assign('ValiderCommande.php')">Valider votre commande</button>
+            <button class="sup" onclick="window.location.assign('AnnulerPanier.php')">Supprimer votre panier</button>
+        </span>
     <?php }?>
 </section>
 
