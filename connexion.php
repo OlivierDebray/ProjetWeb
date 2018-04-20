@@ -44,6 +44,8 @@ if(isset($_POST['formconnexion']))
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Connexion | BDE Exia Orléans</title>
+    <meta name="description" content="Connectez-vous pour accéder à l'ensemble des services proposés par le site du BDE."/>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/inscription&connexion.css" />
 </head>

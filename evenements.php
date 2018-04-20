@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Section événements | BDE Exia Orléans</title>
+    <meta name="description" content="Page d'accueil de la section événements du BDE."/>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/evenements.css"/>
 </head>

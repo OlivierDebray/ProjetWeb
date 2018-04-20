@@ -102,6 +102,7 @@ if(isset($_POST['formajout']))
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Ajouter un produit | BDE Exia Orléans</title>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/inscription&connexion.css" />
 </head>

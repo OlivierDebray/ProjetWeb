@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Boite à idée | BDE Exia Orléans</title>
+    <meta name="description" content="Proposez vos idées pour le BDE."/>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/boiteAIdee.css"/>
     <script src="javascript/likeEvent.js"></script>
@@ -17,7 +19,7 @@
     <?php // Si l'utilisateur n'est pas connecté, on n'affiche pas les informations de la boite à idée
     if (!isset($_SESSION['id'])) { ?>
         <h1>Boite à idée</h1>
-        <p>Vous devez être connecté pour voir la boite à idée et y contribuer !</p>
+        <p>Vous devez être <a href="connexion.php">connecté</a> pour voir la boite à idée et y contribuer !</p>
     <?php }
     // Autrement ...
     else {

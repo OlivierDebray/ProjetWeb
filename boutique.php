@@ -4,6 +4,8 @@
 
 <html lang="fr">
 <head>
+    <title>Boutique | BDE Exia Orléans</title>
+    <meta name="description" content="Parcourez la boutique du BDE pour trouver les goodies de vos rêves !"/>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
     <script src="javascript/manageCart.js"></script>

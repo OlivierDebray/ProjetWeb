@@ -98,6 +98,8 @@ if(isset($_POST['forminscription']))
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Inscription | BDE Exia Orléans</title>
+    <meta name="description" content="Pas encore membre ? Inscrivez vous pour participer à la vie du BDE !"/>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/inscription&connexion.css" />
     <script src="javascript/validation/inscription.js" ></script>

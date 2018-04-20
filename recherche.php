@@ -4,6 +4,8 @@
 
 <html lang="fr">
 <head>
+    <title>Recherche | BDE Exia Orléans</title>
+    <meta name="description" content="Recherchez un produit en particulier dans notre boutique."/>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>

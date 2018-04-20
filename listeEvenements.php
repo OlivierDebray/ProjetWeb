@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Evénements | BDE Exia Orléans</title>
+    <meta name="description" content="Découvrez et participez aux événements organisés par le BDE."/>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/listeEvenements.css"/>
     <script src="javascript/likeEvent.js"></script>
@@ -17,7 +19,7 @@
 
 <section id="corpus">
     <?php if (!isset($_SESSION['id'])) { ?>
-        <p>Vous devez être connecté pour voir les événements !</p>
+        <p>Vous devez être <a href="connexion.php">connecté</a> pour voir les événements !</p>
     <?php }
     else {
         if (isset($_GET['page']) AND ($_GET['page'] == "avenir" OR $_GET['page'] == "passes")) {

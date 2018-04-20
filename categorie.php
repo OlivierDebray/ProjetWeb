@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Catégories | BDE Exia Orléans</title>
+    <meta name="description" content="Explorez les différentes catégories de notre boutique !"/>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/categorie.css"/>
     <link rel="stylesheet" type="text/css" href="css/boutique.css"/>
