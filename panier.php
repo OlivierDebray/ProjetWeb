@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Panier | BDE Exia Orléans</title>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/panier.css" />
     <script src="javascript/manageCart.js"></script>
@@ -14,20 +15,18 @@
 <?php include ('includes/shopNavbar.php') ?>
 
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
-
-$id = $_SESSION['id'];
-
-$query = $bdd->query("SELECT * FROM panier WHERE Utilisateur = '$id'");
-
-$reponse = $query->fetch();
-
+if (isset($_SESSION['id'])) {
+    $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
+    $id = $_SESSION['id'];
+    $query = $bdd->query("SELECT * FROM panier WHERE Utilisateur = '$id'");
+    $reponse = $query->fetch();
+}
 ?>
 
 
 <section id="corpus">
     <?php if (!isset($_SESSION['id'])) { ?>
-        <p>Vous devez être connecté pour voir les événements !</p>
+        <p>Vous devez être <a href="connexion.php">connecté</a> pour accéder au panier !</p>
     <?php } else if (empty($reponse['Utilisateur'])) { ?>
         <h1>Vous n'avez pas d'articles dans votre Panier</h1>
         <a href="boutique.php"> Retourner à la boutique</a>

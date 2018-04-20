@@ -1,5 +1,8 @@
 <?php
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=projetweb', 'root', '');
+//On se connecte a la bdd
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=projetweb;charset=utf8', 'root', '');
+
+//Si on appuie sur le bouton "je valide", alors on récupère les informations des champs du formulaire
 if(isset($_POST['formajout']))
 {
     $nom_produit = htmlspecialchars($_POST['nom_produit']);
@@ -9,41 +12,50 @@ if(isset($_POST['formajout']))
     $stock = htmlspecialchars($_POST['stock']);
     $date = getdate();
 
+    //On regarde si les champs ont bien été rempli
     if (!empty($_POST['nom_produit']) AND !empty($_POST['prix']) AND !empty($_POST['description']) AND !empty($_POST['categorie']) AND !empty($_POST['stock']))
     {
+        //Si on a bien ajoute une image
         if(!empty($_FILES['imageProduits']['name']) AND isset($_FILES['imageProduits']))
         {
+            //on stock la longueur des informations
             $nom_produitlenght = strlen($nom_produit);
             $prixlenght = strlen($prix);
             $descriptionlenght = strlen($description);
             $categorielenght = strlen($categorie);
             $stocklenght = strlen($stock);
-            
 
+            //si le nom du produit est inferieur a 50 ou egal charactere
             if ($nom_produitlenght <= 50)
             {
+                //si le prix du produit est inferieur ou egal a 25 charactere
                 if ($prixlenght <= 25) 
                 {
+                    //si la description est inferieur ou égal a 255 charactere
                     if ($descriptionlenght <= 255) 
                     {
+                        //si la categorie est inferieur ou egal à 50 charactere
                         if ($categorielenght <= 50) 
                         {
+                            //si le stock est inferieur ou egal à 10 produits
                             if ($stocklenght <= 10) 
                             {
-                                    $image = $_FILES['imageProduits'];
-                                    $tmpname = $image['tmp_name'];
-                                    $extension = explode('.', $image['name']);
-                                    $image_extension = strtolower(end($extension));
-                                    $allowed = array('jpg', 'jpeg', 'png', 'gif', 'pdf', 'bmp');
-                                    $new_img_name = $date['mday'].$date['mon'].$date['year'].'_'.$date['hours'].$date['minutes'].$date['seconds'].".".$image_extension;
-                                    $target = "images/produits/".$new_img_name;
-                                    if(in_array($image_extension, $allowed))
-                                    {
-                                        move_uploaded_file($tmpname,$target);
-                                    }
-                                    $insertmbr = $bdd->prepare("INSERT INTO produits(nom, prix, description, categorie ,stock, dateajout, url) VALUES (?, ?, ?, ?, ?, ?,?)");
-                                    $insertmbr->execute(array($nom_produit, $prix, $description, $categorie ,$stock, date("Y-m-d"), $new_img_name));
-                                    $erreur = "Le produit a bien été ajouté !";
+                                //on prepare toutes les variables à ajouter dans la bdd
+                                $image = $_FILES['imageProduits'];
+                                $tmpname = $image['tmp_name'];
+                                $extension = explode('.', $image['name']);
+                                $image_extension = strtolower(end($extension));
+                                $allowed = array('jpg', 'jpeg', 'png', 'gif', 'pdf', 'bmp');
+                                $new_img_name = $date['mday'].$date['mon'].$date['year'].'_'.$date['hours'].$date['minutes'].$date['seconds'].".".$image_extension;
+                                $target = "images/produits/".$new_img_name;
+                                if(in_array($image_extension, $allowed))
+                                {
+                                    move_uploaded_file($tmpname,$target);
+                                }
+                                //on insert les informations dans la bdd
+                                $insertmbr = $bdd->prepare("INSERT INTO produits(nom, prix, description, categorie ,stock, dateajout, url) VALUES (?, ?, ?, ?, ?, ?,?)");
+                                $insertmbr->execute(array($nom_produit, $prix, $description, $categorie ,$stock, date("Y-m-d"), $new_img_name));
+                                $erreur = "Le produit a bien été ajouté !";
                             }
                             else 
                             {
@@ -90,6 +102,7 @@ if(isset($_POST['formajout']))
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Ajouter un produit | BDE Exia Orléans</title>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/inscription&connexion.css" />
 </head>
@@ -166,6 +179,7 @@ if(isset($_POST['formajout']))
                 </tr>
             </table>
             <?php
+            // lorsque qu'on arrive pas a rentrer dans une boucle on affiche l'erreur correspondante
             if (isset($erreur))
                 echo "<p>" . $erreur . "</p>";
             ?>

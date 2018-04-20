@@ -4,6 +4,8 @@
 <html lang="fr">
 <head>
     <?php include('includes/head.php') ?>
+    <title>Accueil BDE Exia Orléans</title>
+    <meta name="description" content="Le site officiel du BDE de l'Exia Cesi Orléans ! Participez à la vie du BDE en prenant part aux événements, proposez vos idées pour le BDE et trouvez les goodies de votre centre !"/>
 </head>
 <body>
 <?php include('includes/header.php') ?>

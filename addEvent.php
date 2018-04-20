@@ -74,6 +74,7 @@ if (isset($_POST['formAddEvent'])) {
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Ajout d'un événement | BDE Exia Orléans</title>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/boiteAIdee.css"/>
     <script src="javascript/likeEvent.js"></script>

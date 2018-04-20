@@ -1,17 +1,22 @@
 <?php
 session_start();
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=projetweb', 'root', '');
+//on connecte à la bdd
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=projetweb;charset=utf8', 'root', '');
 
+//Si on appuie sur le bouton "se connecter"
 if(isset($_POST['formconnexion']))
 {
 	$mailconnect = htmlspecialchars($_POST['mailconnect']);
 	$mdpconnect = sha1($_POST['mdpconnect']);
+    //Si on a bien remplis les deux champs
 	if(!empty($mailconnect) AND !empty($mdpconnect))
 	{
+        //on regarde si l'utilisateur existe bien
 		$requser = $bdd->prepare("SELECT * FROM utilisateurs WHERE mail = ? AND motdepasse = ?");
 		$requser->execute(array($mailconnect, $mdpconnect));
 		$userexist = $requser->rowCount();
+        //si il existe, alors on récupère les informations de session
 		if ($userexist == 1) 
 		{
 			$userinfo = $requser->fetch();
@@ -20,6 +25,7 @@ if(isset($_POST['formconnexion']))
 			$_SESSION['prenom'] = $userinfo['Prenom'];
 			$_SESSION['mail'] = $userinfo['Mail'];
             $_SESSION['etat'] = $userinfo['Status'];
+            //on redirige l'utilisateur vers son profil avec son id dans l'url
             header("Location: profil.php?id=" . $_SESSION['id']);
 		}
 		else
@@ -38,6 +44,8 @@ if(isset($_POST['formconnexion']))
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Connexion | BDE Exia Orléans</title>
+    <meta name="description" content="Connectez-vous pour accéder à l'ensemble des services proposés par le site du BDE."/>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/inscription&connexion.css" />
 </head>
@@ -58,6 +66,7 @@ if(isset($_POST['formconnexion']))
             </table>
 		</form>
 		<?php
+            //On affiche l'erreur si on rentre pas dans la condition
 			if(isset($erreur))
     			echo '<p>' . $erreur . '</p>';
 		?>

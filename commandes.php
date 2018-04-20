@@ -11,6 +11,7 @@ if (isset($_GET['id'])) {
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Gestion des commandes | BDE Exia Orléans</title>
     <?php include('includes/head.php') ?>
     <script src="javascript/changeCommandeState.js"></script>
 </head>

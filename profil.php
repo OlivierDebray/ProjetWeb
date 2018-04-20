@@ -16,6 +16,7 @@ if (isset($_GET['id']) AND ($_GET['id'] > 0))
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <title>Profil de <?php echo $userinfo['Prenom']." ".$userinfo['Nom'] ?> | BDE Exia Orléans</title>
     <?php include('includes/head.php') ?>
     <link rel="stylesheet" type="text/css" href="css/inscription&connexion.css" />
     <script src="javascript/deleteNotification.js"></script>
