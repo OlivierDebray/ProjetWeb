@@ -48,11 +48,7 @@
             }
 
             while ($produitsCommande = $commande->fetch()) {
-<<<<<<< HEAD
-                $bdd->query("INSERT INTO commande (Utilisateur, Produit, Date, Quantité) VALUES (".$id.",'".$produitsCommande['Produit']."',now(),".$produitsCommande['Quantite'].")"); //On insert les données dans la table commande lorsque la commande est passée.
-=======
-                $bdd->query("INSERT INTO commande (Utilisateur, Produit, Date, Quantite, Etat) VALUES (".$id.",'".$produitsCommande['Produit']."',now(),".$produitsCommande['Quantite'].",0)");
->>>>>>> refs/remotes/origin/master
+                $bdd->query("INSERT INTO commande (Utilisateur, Produit, Date, Quantite, Etat) VALUES (".$id.",'".$produitsCommande['Produit']."',now(),".$produitsCommande['Quantite'].",0)"); //On insère les données dans la table commande lorsque la commande est passée
             }
 
         }
