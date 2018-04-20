@@ -49,7 +49,7 @@
                 <p>Les Mugs!</p>
             </div>
             <?php if (isset($_SESSION['etat']) AND ($_SESSION['etat'] == 1)) { ?>
-                <div class="itemContainer" onclick="window.location.assign('ajoutProduit.php')">
+                <div class="itemContainer" onclick="window.location.assign('ajoutProduits.php')">
                     <h2>
                         [BDE] Ajouter un produit
                     </h2>
