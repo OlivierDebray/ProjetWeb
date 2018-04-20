@@ -17,21 +17,20 @@ if(isset($_SESSION["id"])) {//On vérifie que l'utilisateur est bien connecté.
 	
 
 	$reqpanier= $bdd->prepare("SELECT * FROM panier WHERE Utilisateur = '$id' AND Produit = '$idP'");
-	$reqpanier->execute();
-
+	$reqpanier->execute(); //On sélectionne l'ensemble des entrées de la table panier correspondant à l'ID de l'utilisateur connecté et correspondant à l'ID du produit vendu.
 		$idP = $_GET['idproduit'];
 		$donnée = $reqpanier->fetch();
 		do{
 	
 			if($idP == $donnée['Produit']){
 			$incbddpanier = $bdd->prepare("UPDATE panier SET Quantite = Quantite + 1 WHERE Produit = '$idP'");
-			$incbddpanier->execute();
+			$incbddpanier->execute();//On incrémente la quantite du produit ajouté lorsqu'il existe dans la table. 
 			
 		}
 
 		else if($donnée['Produit']!= $idP){
 			$ajoutbddpanier = $bdd->prepare("INSERT INTO panier (Utilisateur, Produit, Quantite) VALUES ( $id, $idP, 1)");
-			$ajoutbddpanier->execute();
+			$ajoutbddpanier->execute(); //On crée une nouvelle entrée lorsque le produit n'existe pas dans la table.
 			
 		
 		}	

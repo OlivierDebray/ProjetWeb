@@ -1,5 +1,6 @@
 .table{
-	border: 2px black solid;	
+	border: 1px black solid;
+    margin: 15px 0px;
 }
 
 
@@ -9,20 +10,15 @@
 	border: 3px solid #000;
 }
 
-	
-
 .rowtitle{
 	display: flex;
 	justify-content: space-around;
-
-	
 }
 
 .row{
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-
 }
 
 .corb{
@@ -30,3 +26,23 @@
 	height: 20px;
 }
 
+#button {
+    display: flex;
+    justify-content: space-around;
+}
+
+.valide{
+	border: 1px black solid;
+	border-radius: 15px;
+}
+.sup{
+	border: 1px black solid;
+	border-radius: 15px;
+}
+
+.valide:hover {
+    background: #e1e1e1;
+}
+.sup:hover {
+    background: #e1e1e1;
+}
